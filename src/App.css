@@ -1,0 +1,134 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-item{
+  padding: 20px;
+}
+
+
+
+
+.banner{
+  position:relative;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 230px;
+ 
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ background-color: white;
+
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+
+
+.banner:hover .overlay {
+  height: 28%;
+ opacity: 0.8;
+}
+
+.text {
+  color: black;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  
+}
+
+.super{
+  color: white;
+  border-radius: 50%;
+  background: grey;
+ 
+  top: -18px;
+  font-size: 13px;
+  padding: 4px;
+}
+
+
+.overlay1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(58, 53, 53, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    height: 300px;
+}
+
+.text:hover .overlay1 {
+  opacity: 1;
+}
+
+.fbtn{
+    height: 35px;
+    margin: 3px;
+    background: gray;
+    color: white;
+    border: none;
+    /* font-size: 20px; */
+    /* padding: 6px; */
+    width: 90px;
+    border-radius: 5px;
+}
+.para{
+  margin-top: 110px;
+}
