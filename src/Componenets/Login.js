@@ -2,35 +2,62 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 
+// function Login() {
+//     const navigate=useNavigate()
+//      const [email, setEmail] = useState('')
+//   const [password, setPassword] = useState('')
+//   console.log({ email, password })
+//   const handleEmail = (e) => {
+//     setEmail(e.target.value)
+//   }
+
+//   const handlePassword = (e) => {
+//     setPassword(e.target.value)
+//   }
+
+//   const handleApi = () => {
+//     console.log({ email, password })
+//     axios.post('https://reqres.in/api/login', {
+//       email: email,
+//       password: password
+//     }).then(result => {
+//       console.log(result.data)    
+//       localStorage.setItem('token',result.data.token)
+//       navigate('/About')
+//     })
+//       .catch(error => {
+//         alert('service error')
+//         console.log(error)
+//       })
+//   }
 function Login() {
-    const navigate=useNavigate()
-     const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  console.log({ email, password })
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
+  const navigate=useNavigate()
+   const [username, setUsername] = useState('')
+const [password, setPassword] = useState('')
+console.log({ username, password })
+const handleEmail = (e) => {
+  setUsername(e.target.value)
+}
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value)
-  }
+const handlePassword = (e) => {
+  setPassword(e.target.value)
+}
 
-  const handleApi = () => {
-    console.log({ email, password })
-    axios.post('https://reqres.in/api/login', {
-      email: email,
-      password: password
-    }).then(result => {
-      console.log(result.data)    
-      localStorage.setItem('token',result.data.token)
-      navigate('/About')
+const handleApi = () => {
+  console.log({ username, password })
+  axios.post('http://localhost:5015/api/Home', {
+    username: username,
+    password: password
+  }).then(result => {
+    console.log(result.data)    
+    localStorage.setItem('token',result.data.token)
+    navigate('/About')
+  })
+    .catch(error => {
+      alert('service error')
+      console.log(error)
     })
-      .catch(error => {
-        alert('service error')
-        console.log(error)
-      })
-  }
-
+}
   return (<>
     {/* <div className="App">
       Email : <input value={email} onChange={handleEmail} type="text" /> <br />
@@ -66,7 +93,7 @@ function Login() {
                 <div className="form-outline mb-4">
                  
                   <label className="form-label" htmlFor="form3Example3">Email address</label>
-                  <input type="text" id="form3Example3" input value={email} onChange={handleEmail} className="form-control form-control-lg" placeholder="Enter a valid email address" />
+                  <input type="text" id="form3Example3" input value={username} onChange={handleEmail} className="form-control form-control-lg" placeholder="Enter a valid email address" />
                 </div>
                 {/* Password input */}
                 <div className="form-outline mb-3">
