@@ -22,6 +22,7 @@ import axios from 'axios';
 
 
 function App() {
+  console.log("test")
   const [product, setProduct] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5015/api/Home")
