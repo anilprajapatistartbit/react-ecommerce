@@ -70,5 +70,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-1) Home page
-![Homepage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/f631835f-efcd-4c7c-b041-626f6d928383) 
+1) Home Page
+![Homepage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/f631835f-efcd-4c7c-b041-626f6d928383)
+
+2)Product List Page
+![Productlist](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b6554cd4-60dc-4c78-92a2-8795b9faf94d)
+
+3)Product Details Page
+
+4)Product Cart
