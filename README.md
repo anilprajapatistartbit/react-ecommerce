@@ -77,5 +77,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ![Productlist](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b6554cd4-60dc-4c78-92a2-8795b9faf94d)
 
 3)Product Details Page
+![ProductDetails](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/a072e7c2-8a5c-4542-93e5-896ac0677909)
 
 4)Product Cart
+![Cart](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/791559e9-1166-46c1-bc1c-2d3b21fa0a33)
+
+
