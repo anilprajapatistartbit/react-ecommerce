@@ -81,6 +81,16 @@ function Home(props) {
                 </Link>
               </li>
 
+              <li className="nav-item">
+                <Link
+                  to="/Registrion"
+                  className="nav-link"
+                  aria-current="page"                 
+                >
+                  SignUP
+                </Link>
+              </li>
+
               {token && 
                 <li className="nav-item">
                   <Link

@@ -18,6 +18,7 @@ import s5 from './images/s5.jpg';
 import s6 from './images/s6.jpg';
 import  Footer  from './Componenets/Footer';
 import Checkout from './Componenets/Checkout';
+import Registrion from './Componenets/Registration';
 import axios from 'axios';
 
 
@@ -59,6 +60,7 @@ let singlepro=(data)=>{
       <Route path="/Cart" element={<Cart cart={cart}/>}/> 
       <Route path="/Login" element={<Login/>}/>
       <Route path="/Checkout" element={<Checkout/>}/>
+      <Route path="/Registrion" element={<Registrion/>}/>
       
     
        

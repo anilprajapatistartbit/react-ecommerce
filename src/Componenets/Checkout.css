@@ -30,7 +30,7 @@
   
  
   
-  input[type=text] {
+  .cform[type=text] {
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;

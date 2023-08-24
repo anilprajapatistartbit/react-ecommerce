@@ -10,21 +10,21 @@ function Checkout() {
           <div className="col-50">
             <h3>Billing Address</h3>
             <label htmlFor="fname"><i className="fa fa-user" /> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe" />
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe" className='cform'/>
             <label htmlFor="email"><i className="fa fa-envelope" /> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com" />
+            <input type="text" id="email" name="email" placeholder="john@example.com" className='cform'/>
             <label htmlFor="adr"><i className="fa fa-address-card-o" /> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" />
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" className='cform'/>
             <label htmlFor="city"><i className="fa fa-institution" /> City</label>
-            <input type="text" id="city" name="city" placeholder="New York" />
+            <input type="text" id="city" name="city" placeholder="New York" className='cform'/>
             <div className="row">
               <div className="col-50">
                 <label htmlFor="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY" />
+                <input type="text" id="state" name="state" placeholder="NY" className='cform'/>
               </div>
               <div className="col-50">
                 <label htmlFor="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder={10001} />
+                <input type="text" id="zip" name="zip" placeholder={10001} className='cform'/>
               </div>
             </div>
           </div>
@@ -38,19 +38,19 @@ function Checkout() {
               <i className="fa fa-cc-discover" style={{color: 'orange,marginRight:"5px"'}} />
             </div>
             <label htmlFor="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe" />
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe" className='cform'/>
             <label htmlFor="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" className='cform'/>
             <label htmlFor="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September" />
+            <input type="text" id="expmonth" name="expmonth" placeholder="September" className='cform'/>
             <div className="row">
               <div className="col-50">
                 <label htmlFor="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder={2018} />
+                <input type="text" id="expyear" name="expyear" placeholder={2018} className='cform'/>
               </div>
               <div className="col-50">
                 <label htmlFor="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder={352} />
+                <input type="text" id="cvv" name="cvv" placeholder={352} className='cform'/>
               </div>
             </div>
           </div>
