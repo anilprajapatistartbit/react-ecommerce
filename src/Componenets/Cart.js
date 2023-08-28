@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Checkout from "./Checkout";
 function Cart({ cart }) {
+  
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    }
+  }, []);
   let [CART, setCART] = useState([]);
   useEffect(() => {
     setCART(cart);
@@ -32,7 +38,7 @@ function Cart({ cart }) {
                     <tr>
                       <td>
                         {" "}
-                        <img src={cartItem.url} width={40}></img>
+                        <img src={cartItem.url[0]} width={40}></img>
                       </td>
                       <td>{cartItem.name}</td>
                       <td>

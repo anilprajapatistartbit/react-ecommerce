@@ -42,7 +42,7 @@ function Product({ product, addtocart, singlepro }) {
             return (
               <div className="card" style={{ margin: "12px" }} key={productItem.id}>
                 <div className="card-image">
-                  <img src={productItem.url} width="100%" height="400" alt={productItem.name} />
+                  <img src={productItem.url[0]} width="100%" height="400" alt={productItem.name} />
                 </div>
                 <div className="card-body">
                   <p className="title product-title">

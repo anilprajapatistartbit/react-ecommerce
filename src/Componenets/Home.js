@@ -1,53 +1,52 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Carousel from "./Carousel";
 import logo3 from "../images/logo3.jpg";
 function Home(props) {
-  const [token, setToken] = useState(localStorage.getItem('token')); // You can replace this with your actual token retrieval logic
+  const location = useLocation();
+  const [token, setToken] = useState(false); // You can replace this with your actual token retrieval logic
 
+  useEffect(() => {
+    localStorage.getItem("token") ? setToken(true) : setToken(false);
+    console.log(location);
+  }, [location.pathname]);
   const handleLogin = () => {
-    // Perform login logic and set the token
-    const newToken = 'yourGeneratedToken'; // Replace with actual token value
-    localStorage.setItem('token', newToken);
-    setToken(newToken);
   };
 
   const handleLogout = () => {
-    // Perform logout logic and remove the token
-    localStorage.removeItem('token');
-    setToken(null);
+    localStorage.removeItem("token");
+    setToken(false);
+    console.log(token);
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{height:'40px'}}>
-        <div className="container" style={{maxWidth:'1300px'}}>
-    
+      <nav
+        className="navbar navbar-expand-lg navbar-dark bg-dark"
+        style={{ height: "40px" }}
+      >
+        <div className="container" style={{ maxWidth: "1300px" }}>
           <ul className="navbar-nav justify-end">
             <li className="nav-item ">
-              <Link  className="nav-link " href="#">
-                 Contact /
+              <Link className="nav-link " href="#">
+                Contact /
               </Link>
             </li>
             <li className="nav-item ">
-              <Link  className="nav-link " href="#">
-              Location
+              <Link className="nav-link " href="#">
+                Location
               </Link>
             </li>
-           
           </ul>
-          
         </div>
       </nav>
 
-      <nav className="navbar navbar-expand-lg navbar-light "style={{background:'white'}}>
-        <div className="container" style={{maxWidth:'1300px'}}>
+      <nav
+        className="navbar navbar-expand-lg navbar-light "
+        style={{ background: "white" }}
+      >
+        <div className="container" style={{ maxWidth: "1300px" }}>
           <a className="navbar-brand" href="#">
-            <img
-              src={logo3}
-              width="75"
-              height="65px"
-             
-            />
+            <img src={logo3} width="75" height="65px" />
           </a>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -69,45 +68,42 @@ function Home(props) {
                   aria-current="page"
                   href="#"
                 >
-                  ShoesList
+                  ProductList
                 </Link>
               </li>
-             
             </ul>
             <ul className="navbar-nav flex-d">
               <li className="nav-item ">
                 <Link to="/Cart" className="nav-link " href="#">
-                <i class="fa fa-cart-shopping" style={{fontSize:'23px'}}></i><sup class="super">{props.count}</sup>
+                  <i
+                    class="fa fa-cart-shopping"
+                    style={{ fontSize: "23px" }}
+                  ></i>
+                  <sup class="super">{props.count}</sup>
                 </Link>
               </li>
+              
 
-              <li className="nav-item">
-                <Link
-                  to="/Registrion"
-                  className="nav-link"
-                  aria-current="page"                 
-                >
-                  SignUP
-                </Link>
-              </li>
-
-              {token && 
+              {token && (
                 <li className="nav-item">
-                  <Link
-                    to="/Login"
-                    className="nav-link"
-                    onClick={handleLogout}
-                  >
+                  <Link to="/Login" className="nav-link" onClick={handleLogout}>
                     Logout
                   </Link>
-                </li>}
-                {!token && 
+                </li>
+              )}
+              {!token && (<>
+                <li className="nav-item">
+                <Link to="/Registrion" className="nav-link" aria-current="page">
+                  Signup
+                </Link>
+              </li>
                 <li className="nav-item">
                   <Link to="/Login" className="nav-link" onClick={handleLogin}>
                     Login
                   </Link>
                 </li>
-              }
+                </>
+              )}
             </ul>
           </div>
         </div>
