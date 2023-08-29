@@ -28,12 +28,18 @@ function Home(props) {
           <ul className="navbar-nav justify-end">
             <li className="nav-item ">
               <Link className="nav-link " href="#">
-                Contact /
+              <i
+                    class="fa fa-phone"
+                    style={{ fontSize: "18px" }}
+                  ></i> +0123 456 789
               </Link>
             </li>
             <li className="nav-item ">
               <Link className="nav-link " href="#">
-                Location
+              <i
+                    class="fa fa-envelope"
+                    style={{ fontSize: "18px" }}
+                  ></i>  Shoesstore@gmail.com
               </Link>
             </li>
           </ul>
@@ -71,6 +77,16 @@ function Home(props) {
                   ProductList
                 </Link>
               </li>
+              {/* <li className="nav-item">
+                <Link
+                  to="/Admin"
+                  className="nav-link active"
+                  aria-current="page"
+                  href="#"
+                >
+                  Admin
+                </Link>
+              </li> */}
             </ul>
             <ul className="navbar-nav flex-d">
               <li className="nav-item ">

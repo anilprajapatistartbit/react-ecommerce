@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../App.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import s1 from "../images/s1.jpg";
-import s2 from "../images/s2.jpg";
-import s3 from "../images/s3.jpg";
+
 import banner1 from "../images/banner1.jpg";
 import banner2 from "../images/banner2.jpg";
 import banner3 from "../images/banner3.jpg";
@@ -17,7 +15,10 @@ import l6 from "../images/6.png";
 import l7 from "../images/7.png";
 import Menu from "./Menu";
 import { useState } from "react";
+import {data} from "../App";
 export default function Arrivals() {
+  const product=useContext(data);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -40,14 +41,14 @@ export default function Arrivals() {
       items: 1,
     },
   };
-  const [items, setitems] = useState(Menu);
+  const [produc, setitems] = useState(product);
   const filterItem = (categItem) => {
-    const updateItems = Menu.filter((curElm) => {
+    const updateItems = product.filter((curElm) => {
       return curElm.category == categItem;
     });
     setitems(updateItems);
   };
-  const [pic, setpic] = useState(Menu);
+ 
   return (
     <>
       <div
@@ -63,48 +64,17 @@ export default function Arrivals() {
 
         <div style={{ paddingBottom: "65px" }}>
           <Carousel responsive={responsive}>
-            <div className="text">
-              <img src={s1} height="300" />
+          {product.map((prod) => {return(<>
+            <div className="sliderlist">
+              <img src={prod.url[0]} height="300" />
               <div className="overlay1">
-                <p className="para">Heading</p>
-                <p>Lorem </p>
+                <p>{prod.category}</p>
+                <p>{prod.price} </p>
               </div>
             </div>
-            <div className="text">
-              <img src={s2} height="300" />
-              <div className="overlay1">
-                <p className="para">Heading</p>
-                <p>Lorem </p>
-              </div>
-            </div>
-            <div className="text">
-              <img src={s3} height="300" />
-              <div className="overlay1">
-                <p className="para">Heading</p>
-                <p>Lorem </p>
-              </div>
-            </div>
-            <div className="text">
-              <img src={s1} height="300" />
-              <div className="overlay1">
-                <p className="para">Heading</p>
-                <p>Lorem </p>
-              </div>
-            </div>
-            <div className="text">
-              <img src={s3} height="300" />
-              <div className="overlay1">
-                <p className="para">Heading</p>
-                <p>Lorem </p>
-              </div>
-            </div>
-            <div>
-              <img src={s1} height="300" />
-              <div className="overlay1">
-                <p className="para">Heading</p>
-                <p>Lorem </p>
-              </div>
-            </div>
+           
+            </>)
+            })}
           </Carousel>
         </div>
       </div>
@@ -200,17 +170,17 @@ export default function Arrivals() {
           <div className="row">
             <div className="col-11 mx-auto">
               <div className="row">
-                {items.map((elem) => {
-                  const { url ,name} = elem;
+                {produc.map((elem) => {
+                 
                   return (
                     <div className="item1 col-12 col-md-6 col-lg-6 col-xl-3 my-3">
                       <div class="card">
                         
-                        <img src={url} className="image" />
+                        <img src={elem.url[0]} className="image" />
                         
                         <div class="card-body">
                           <h6 class="title product-title">
-                            {name} 
+                            {elem.name} 
                           </h6>
                         </div>
                       </div>

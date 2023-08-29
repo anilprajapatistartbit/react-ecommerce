@@ -5,18 +5,21 @@ function Product({ product, addtocart, singlepro }) {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(product);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 6;
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     }
-  }, []);
+  }, [navigate]);
 
   useEffect(() => {
     const filtered = product.filter(productItem =>
       productItem.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProducts(filtered);
+    setCurrentPage(1); // Reset to first page when the search term changes
   }, [searchTerm, product]);
 
   const pdetail = (productItem) => {
@@ -24,6 +27,20 @@ function Product({ product, addtocart, singlepro }) {
     singlepro(productItem);
   };
 
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= Math.ceil(filteredProducts.length / productsPerPage)) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(filteredProducts.length / productsPerPage); i++) {
+    pageNumbers.push(i);
+  }
   return (
     <>
       <div className="container" style={{ marginTop: "2%" }}>
@@ -38,7 +55,8 @@ function Product({ product, addtocart, singlepro }) {
         </div>
       
         <div className="flex">
-          {filteredProducts.map((productItem) => {
+      
+          {currentProducts.map((productItem) => {
             return (
               <div className="card" style={{ margin: "12px" }} key={productItem.id}>
                 <div className="card-image">
@@ -68,7 +86,31 @@ function Product({ product, addtocart, singlepro }) {
               </div>
             );
           })}
+    
         </div>
+        <div className="pagination">
+  <button
+    onClick={() => handlePageChange(currentPage - 1)}
+    disabled={currentPage === 1}
+  >
+    Pre
+  </button>
+  {pageNumbers.map((pageNumber) => (
+    <span
+      key={pageNumber}
+      onClick={() => handlePageChange(pageNumber)}
+      className={currentPage === pageNumber ? 'active' : ''}
+    >
+      {pageNumber}
+    </span>
+  ))}
+  <button
+    onClick={() => handlePageChange(currentPage + 1)}
+    disabled={currentPage === Math.ceil(filteredProducts.length / productsPerPage)}
+  >
+    Next
+  </button>
+</div>
       </div>
     </>
   );
