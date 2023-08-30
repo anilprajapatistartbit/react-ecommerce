@@ -22,13 +22,14 @@ import Checkout from './Componenets/Checkout';
 import Registrion from './Componenets/Registration';
 import Admin from './Componenets/Admin';
 import axios from 'axios';
+import AddProduct from './Componenets/AddProduct';
 
 const data=createContext();
 function App() {
   console.log("test")
   const [product, setProduct] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5015/api/Home")
+    axios.get("https://localhost:7120/api/Registration/getall")
       .then((response) => {
         console.log(response);
         setProduct(response.data);
@@ -67,7 +68,7 @@ let singlepro=(data)=>{
       <Route path="/Checkout" element={<Checkout/>}/>
       <Route path="/Registrion" element={<Registrion/>}/>
       <Route path="/Admin" element={<Admin/>}/>
-      
+      <Route path="/AddProduct" element={<AddProduct/>}/>
       
     
        
