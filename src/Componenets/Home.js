@@ -8,16 +8,17 @@ function Home(props) {
 
   useEffect(() => {
     localStorage.getItem("token") ? setToken(true) : setToken(false);
-    console.log(location);
+    //console.log(location);
+    console.log(token);
   }, [location.pathname]);
-  const handleLogin = () => {
-  };
+  const handleLogin = () => {};
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     setToken(false);
     console.log(token);
   };
+  const isEmailAdmin = localStorage.getItem('email') === 'admin@gmail.com';
   return (
     <>
       <nav
@@ -27,19 +28,15 @@ function Home(props) {
         <div className="container" style={{ maxWidth: "1300px" }}>
           <ul className="navbar-nav justify-end">
             <li className="nav-item ">
-              <Link className="nav-link " href="#">
-              <i
-                    class="fa fa-phone"
-                    style={{ fontSize: "18px" }}
-                  ></i> +0123 456 789
+              <Link className="nav-link "  href="tel:+0123456789">
+                <i class="fa fa-phone" style={{ fontSize: "18px" }}></i> +0123
+                456 789
               </Link>
             </li>
             <li className="nav-item ">
-              <Link className="nav-link " href="#">
-              <i
-                    class="fa fa-envelope"
-                    style={{ fontSize: "18px" }}
-                  ></i>  Shoesstore@gmail.com
+              <Link className="nav-link "  href="mailto:Shoesstore@g.com">
+                <i class="fa fa-envelope" style={{ fontSize: "18px" }}></i>{" "}
+                Shoesstore@gmail.com
               </Link>
             </li>
           </ul>
@@ -77,16 +74,28 @@ function Home(props) {
                   ProductList
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link
-                  to="/Admin"
-                  className="nav-link active"
-                  aria-current="page"
+              {isEmailAdmin && token &&(
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
                   href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
                   Admin
-                </Link>
-              </li> */}
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <Link to="/Admin" className="dropdown-item">
+                      Product List
+                    </Link>
+                  </li>
+                  {/* Add more dropdown items here if needed */}
+                </ul>
+              </li>
+              )}
             </ul>
             <ul className="navbar-nav flex-d">
               <li className="nav-item ">
@@ -98,7 +107,6 @@ function Home(props) {
                   <sup class="super">{props.count}</sup>
                 </Link>
               </li>
-              
 
               {token && (
                 <li className="nav-item">
@@ -107,17 +115,26 @@ function Home(props) {
                   </Link>
                 </li>
               )}
-              {!token && (<>
-                <li className="nav-item">
-                <Link to="/Registrion" className="nav-link" aria-current="page">
-                  Signup
-                </Link>
-              </li>
-                <li className="nav-item">
-                  <Link to="/Login" className="nav-link" onClick={handleLogin}>
-                    Login
-                  </Link>
-                </li>
+              {!token && (
+                <>
+                  <li className="nav-item">
+                    <Link
+                      to="/Registrion"
+                      className="nav-link"
+                      aria-current="page"
+                    >
+                      Signup
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link
+                      to="/Login"
+                      className="nav-link"
+                      onClick={handleLogin}
+                    >
+                      Login
+                    </Link>
+                  </li>
                 </>
               )}
             </ul>

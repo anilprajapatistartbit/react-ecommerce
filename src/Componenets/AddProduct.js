@@ -2,17 +2,26 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function AddProduct() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     pid: 0,
-    url: "",
+    url: [],
     name: "",
     category: "",
     seller: "",
     price: "",
   });
   const [errors, seterrors] = useState({});
+  
+  const handleUrlChange = (e) => {
+    const url = e.target.value.split(',');
+    setFormData({ ...formData, url });
+  };
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -24,10 +33,10 @@ function AddProduct() {
     let isValid = true;
     e.preventDefault();
     const validationerror = {};
-    if (!formData.url.trim()) {
-      validationerror.url = "url is required";
-      isValid = false;
-    }
+    // if (!formData.url.trim()) {
+    //   validationerror.url = "url is required";
+    //   isValid = false;
+    // }
     if (!formData.name.trim()) {
       validationerror.name = "name is required";
       isValid = false;
@@ -44,6 +53,7 @@ function AddProduct() {
       validationerror.price = "price is required";
       isValid = false;
     }
+  
     if (isValid) {
       try {
         console.log(formData);
@@ -51,15 +61,19 @@ function AddProduct() {
           "https://localhost:7120/api/Registration/product",
           formData
         );
-        alert("submit sucessfully");
-       // navigate("/Admin");
+        toast.success('Product added successfully!');
+        navigate("/Admin");
         console.log(response.data); // You can handle the response as needed
+       
       } catch (error) {
         console.error("Error registering:", error);
+        toast.error('Error adding product. Please try again.');
       }
     } else {
       seterrors(validationerror);
+     
     }
+
   };
   return (
     <>
@@ -75,8 +89,8 @@ function AddProduct() {
               id="form3Example1c"
               className={`form-control ${errors.url && "is-invalid"}`}
               name="url"
-              value={formData.url}
-              onChange={handleChange}
+              value={formData.url.join(',')}
+             onChange={handleUrlChange}
             />
              {errors.url && (
               <div className="invalid-feedback">{errors.url}</div>
@@ -151,7 +165,9 @@ function AddProduct() {
             Add
           </button>
         </form>
+        <ToastContainer position="top-right" autoClose={3000} />
       </div>
+     
     </>
   );
 }

@@ -39,18 +39,15 @@ class Admin extends Component {
          } ,1000);
     });
  }
- handleDelete = (id) => {
+ handleDelete = async (pid) => {
   try {
-   
-    const response = axios.delete(`https://localhost:7120/api/Registration/delete/${id}`);
+    const response = await axios.delete(`https://localhost:7120/api/Registration/delete/${pid}`);
     console.log(response.data);
-    alert("Delete sucessfully");
-   // navigate("/Admin");
-   
+    alert("Delete successfully");
+    // You can perform other actions after successful deletion here.
   } catch (error) {
-    console.error("Error registering:", error);
+    console.error("Error deleting:", error);
   }
-
 };
 
   render(){
@@ -79,6 +76,7 @@ class Admin extends Component {
           </thead>
           <tbody>
           {this.state.data.map((result) => {
+              console.log("Deleting pid:", result.pid);
             return (
               
                  <tr key={result.pid}>

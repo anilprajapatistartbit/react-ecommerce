@@ -6,15 +6,15 @@ const Footer = () =>  <footer className="bg-dark text-center text-white">
   {/* Section: Social media */}
   <section className="mb-4">
     {/* Facebook */}
-    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i className="fab fa-facebook-f" /></a>
+    <a className="btn btn-outline-light btn-floating m-1"  href="https://www.facebook.com/danweyn" role="button"><i className="fab fa-facebook-f" /></a>
     {/* Twitter */}
-    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i className="fab fa-twitter" /></a>
+    <a className="btn btn-outline-light btn-floating m-1" href="https://twitter.com/danweyne" role="button"><i className="fab fa-twitter" /></a>
     {/* Google */}
     <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i className="fab fa-google" /></a>
     {/* Instagram */}
-    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i className="fab fa-instagram" /></a>
+    <a className="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/danweyn"  role="button"><i className="fab fa-instagram" /></a>
     {/* Linkedin */}
-    <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i className="fab fa-linkedin-in" /></a>
+    <a className="btn btn-outline-light btn-floating m-1"  href="https://www.linkedin.com/danweyn" role="button"><i className="fab fa-linkedin-in" /></a>
     {/* Github */}
     <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i className="fab fa-github" /></a>
   </section>

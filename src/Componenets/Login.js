@@ -45,6 +45,7 @@ function Login() {
       .then((result) => {
         console.log(result.data);
         if (result.data === "valid User") {
+          localStorage.setItem("email", email);
           localStorage.setItem("token", true);
           navigate("/About");
         } else {
