@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link  } from 'react-router-dom';
 import 'jquery/dist/jquery.min.js';
 import '../App.css';
 //Datatable Modules
@@ -9,13 +9,26 @@ import $ from 'jquery';
 
 
 import axios from 'axios';
-import Product from './Product';
+
  
 class Admin extends Component {
   
   handleButtonClick = () => {
-    // Use the history object to navigate to another route
-    useNavigate("/AddProduct");
+    const NavigateButton = () => {
+      const navigate = useNavigate();
+      return (<>
+        <button
+          style={{ marginBottom: '15px' }}
+          onClick={() => navigate('/AddProduct')}
+          className="btn btn-primary"
+        >Add Product</button>
+       </>
+        
+      );
+    };
+
+    // Render the NavigateButton component
+    return <NavigateButton />;
   };
   // State array variable to save and show data
   constructor(props) {
@@ -41,6 +54,7 @@ class Admin extends Component {
  }
  handleDelete = async (pid) => {
   try {
+    console.log(pid)
     const response = await axios.delete(`https://localhost:7120/api/Registration/delete/${pid}`);
     console.log(response.data);
     alert("Delete successfully");
@@ -50,9 +64,9 @@ class Admin extends Component {
   }
 };
 
+
+
   render(){
-   
-   
    
   return (
     <div className="MainDiv">
@@ -61,8 +75,7 @@ class Admin extends Component {
       </div>
        
       <div className="container">
-      <button style={{marginBottom:'15px'}} onClick={this.handleButtonClick}
-                    className="btn btn-primary">Add Product</button>
+      {this.handleButtonClick()}
           <table id="example" class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -85,7 +98,14 @@ class Admin extends Component {
                   <td>{result.category}</td>
                   <td>{result.seller}</td>
                   <td>{result.price}</td>
-                  <td><button type='button'className="btn btn-danger"onClick={()=>this.handleDelete(result.pid)}>Delete</button></td>
+                  <td><button type='button'className="btn btn-danger"onClick={()=>this.handleDelete(result.pid)}>Delete</button>
+                  <Link
+                        to={`/EditProduct/${result.pid}`} // Use a dynamic URL parameter for the product ID
+                        className="btn btn-primary"
+                      >
+                        Edit
+                      </Link>
+                  </td>
                 </tr>
               
             )

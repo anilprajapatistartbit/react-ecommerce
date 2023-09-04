@@ -61,6 +61,7 @@ function AddProduct() {
           "https://localhost:7120/api/Registration/product",
           formData
         );
+        alert('Product added successfully!');
         toast.success('Product added successfully!');
         navigate("/Admin");
         console.log(response.data); // You can handle the response as needed
@@ -74,6 +75,10 @@ function AddProduct() {
      
     }
 
+  };
+  const pdetail = () => {
+    navigate("/Admin");
+  
   };
   return (
     <>
@@ -164,10 +169,15 @@ function AddProduct() {
             className="btn btn-primary btn-lg">
             Add
           </button>
+          <button
+                   
+                    onClick={() => pdetail(pdetail)}
+                    className="btn btn-warning  btn-lg"
+                  >Back</button>
         </form>
-        <ToastContainer position="top-right" autoClose={3000} />
+       
       </div>
-     
+      <ToastContainer position="top-right" autoClose={8000} />
     </>
   );
 }

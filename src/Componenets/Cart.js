@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import Checkout from "./Checkout";
+import empty from "../images/empty.png";
 function Cart({ cart }) {
   
   useEffect(() => {
@@ -14,74 +15,91 @@ function Cart({ cart }) {
   }, [cart]);
 
   const navigate = useNavigate();
+
+  const removeFromCart = (cartIndex) => {
+    const updatedCart = CART.filter((_, index) => index !== cartIndex);
+    setCART(updatedCart);
+  };
+
   const checkout = () => {
     navigate('/Checkout');
    
   };
+
   return (
     <div class="container" style={{ maxWidth: "1300px", marginTop: "5%" ,marginBottom:'10%',background:'#f9f9f9'}}>
       <div class="row" style={{padding:'20px'}}>
-        <div class="col-lg-9">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Name</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-              </tr>
-            </thead>
-            {CART?.map((cartItem, cartIndex) => {
-              return (
-                <>
-                  <tbody>
-                    <tr>
-                      <td>
-                        {" "}
-                        <img src={cartItem.url[0]} width={40}></img>
-                      </td>
-                      <td>{cartItem.name}</td>
-                      <td>
-                        <button
-                          onClick={() => {
-                            const _cart = CART.map((item, index) => {
-                              return cartIndex === index
-                                ? {
-                                    ...item,
-                                    quantity:
-                                      item.quantity > 0 ? item.quantity - 1 : 0,
-                                  }
-                                : item;
-                            });
-                            setCART(_cart);
-                          }}
-                        >
-                          
-                          -
-                        </button>
-                        {cartItem.quantity}
-                        <button
-                          onClick={() => {
-                            const _cart = CART.map((item, index) => {
-                              return cartIndex === index
-                                ? { ...item, quantity: item.quantity + 1 }
-                                : item;
-                            });
-                            setCART(_cart);
-                          }}
-                        >
-                          
-                          +
-                        </button>
-                      </td>
-                      <td>${(cartItem.price * cartItem.quantity).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-                    </tr>
-                  </tbody>
-                </>
-              );
-            })}
-          </table>
-        </div>
+      <div className="col-lg-9">
+  <table className="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    {CART?.length === 0 ? (
+      
+        
+        <img src={empty} height="auto" style={{float:'right'}}/>
+      
+    
+    ) : (
+      CART.map((cartItem, cartIndex) => (
+        <tbody key={cartIndex}>
+          <tr>
+            <td>
+              <img src={cartItem.url[0]} width={40} alt="Product" />
+            </td>
+            <td>{cartItem.name}</td>
+            <td>
+              <button
+                onClick={() => {
+                  const _cart = CART.map((item, index) => {
+                    return cartIndex === index
+                      ? {
+                          ...item,
+                          quantity: item.quantity > 0 ? item.quantity - 1 : 0,
+                        }
+                      : item;
+                  });
+                  setCART(_cart);
+                }}
+              >
+                -
+              </button>
+              {cartItem.quantity}
+              <button
+                onClick={() => {
+                  const _cart = CART.map((item, index) => {
+                    return cartIndex === index
+                      ? { ...item, quantity: item.quantity + 1 }
+                      : item;
+                  });
+                  setCART(_cart);
+                }}
+              >
+                +
+              </button>
+            </td>
+            <td>
+              ${(cartItem.price * cartItem.quantity).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </td>
+            <td>
+              <i
+                className="fas fa-trash-alt remove"
+                onClick={() => removeFromCart(cartIndex)}
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      ))
+    )}
+  </table>
+</div>
+
         <div class="col-lg-3">
           <div class="card" style={{padding:'20px'}}>
             <h6>Cart Total</h6>

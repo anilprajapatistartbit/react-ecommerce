@@ -23,7 +23,7 @@ import Registrion from './Componenets/Registration';
 import Admin from './Componenets/Admin';
 import axios from 'axios';
 import AddProduct from './Componenets/AddProduct';
-
+import EditProduct from './Componenets/EditProduct';
 const data=createContext();
 function App() {
   console.log("test")
@@ -69,6 +69,7 @@ let singlepro=(data)=>{
       <Route path="/Registrion" element={<Registrion/>}/>
       <Route path="/Admin" element={<Admin/>}/>
       <Route path="/AddProduct" element={<AddProduct/>}/>
+      <Route path="/EditProduct/:pid" element={<EditProduct/>}/>
       
     
        

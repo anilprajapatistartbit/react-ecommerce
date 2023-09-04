@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -47,7 +48,9 @@ function Login() {
         if (result.data === "valid User") {
           localStorage.setItem("email", email);
           localStorage.setItem("token", true);
+          toast.success('Login successfully!');
           navigate("/About");
+         
         } else {
           setError("Invalid email or password");
         }
@@ -150,6 +153,7 @@ function Login() {
           </div>
         </div>
       </section>
+      <ToastContainer position="top-right" autoClose={5000} />
     </>
   );
 }

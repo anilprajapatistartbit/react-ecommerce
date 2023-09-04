@@ -61,6 +61,7 @@ function Registrion() {
          
         );
         alert("submit sucessfully");
+        navigate("/login");
         console.log(response.data); // You can handle the response as needed
       } catch (error) {
         console.error("Error registering:", error);
