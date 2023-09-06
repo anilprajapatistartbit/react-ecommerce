@@ -1,8 +1,8 @@
 
 import React from 'react'
-import one from '../images/one.jpg';
-import two from '../images/two.jpg';
-import three from '../images/three.jpg';
+import one from '../assets/images/one.jpg';
+import two from '../assets/images/two.jpg';
+import three from '../assets/images/three.jpg';
 import Arrivals from "./Arrivals";
 export default function Carousel() {
   return (

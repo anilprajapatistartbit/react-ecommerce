@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import Checkout from "./Checkout";
-import empty from "../images/empty.png";
+import Checkout from "../../Componenets/Checkout";
+import empty from "../../assets/images/empty.png";
 function Cart({ cart }) {
   
   useEffect(() => {
@@ -22,9 +22,9 @@ function Cart({ cart }) {
   };
 
   const checkout = () => {
-    navigate('/Checkout');
+     navigate('/Checkout');
    
-  };
+   };
 
   return (
     <div class="container" style={{ maxWidth: "1300px", marginTop: "5%" ,marginBottom:'10%',background:'#f9f9f9'}}>
@@ -185,7 +185,7 @@ function Cart({ cart }) {
                     0
                   ).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td></tr>
             </table>
-            <button className="btn btn-outline-primary"  onClick={() => checkout(checkout)}>PROCEED TO CHECKOUT</button>
+             <button className="btn btn-outline-primary"  onClick={() => checkout(checkout)}>PROCEED TO CHECKOUT</button> 
           </div>
         </div>
       </div>

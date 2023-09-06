@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import '../Componenets/Checkout.css';
+
+import '../assets/css/Checkout.css'
 function Checkout() {
  
   const [formData, setFormData] = useState({

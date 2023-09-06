@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 function Product({ product, addtocart, singlepro }) {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");

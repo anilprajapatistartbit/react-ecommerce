@@ -1,19 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 //import { Navigate, useNavigate } from "react-router-dom";
 function Registrion() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    id:0,
+    id: 0,
     usename: "",
     password: "",
     email: "",
-    IsActive:1,
-    confirmPassword:""
+    IsActive: 1,
+    confirmPassword: "",
   });
 
-  const [errors,seterrors]=useState({})
+  const [errors, seterrors] = useState({});
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -21,44 +21,38 @@ function Registrion() {
       [name]: value,
     }));
   };
-   const handleSubmit =(e)=>{
+  const handleSubmit = (e) => {
     let isValid = true;
     e.preventDefault();
-    const validationerror ={}
+    const validationerror = {};
     if (!formData.usename.trim()) {
-      validationerror.usename = 'Username is required';
+      validationerror.usename = "Username is required";
       isValid = false;
     }
     if (!formData.email.trim()) {
-      validationerror.email = 'Email is required';
+      validationerror.email = "Email is required";
       isValid = false;
-  
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      validationerror.email = 'Invalid email format';
+      validationerror.email = "Invalid email format";
       isValid = false;
-     
     }
     if (!formData.password.trim()) {
-      validationerror.password = 'Password is required';
+      validationerror.password = "Password is required";
       isValid = false;
-    
     } else if (formData.password.length < 6) {
-      validationerror.password = 'Password must be at least 6 characters';
+      validationerror.password = "Password must be at least 6 characters";
       isValid = false;
-     
     }
     if (formData.confirmPassword !== formData.password) {
-      validationerror.confirmPassword = 'Passwords do not match';
+      validationerror.confirmPassword = "Passwords do not match";
       isValid = false;
-     
     }
     if (isValid) {
       try {
         console.log(formData);
-        const response =axios.post(
+        const response = axios.post(
           "https://localhost:7120/api/Registration/registration",
           formData
-         
         );
         alert("submit sucessfully");
         navigate("/login");
@@ -69,8 +63,8 @@ function Registrion() {
     } else {
       seterrors(validationerror);
     }
-   }
-  
+  };
+
   return (
     <div className="container-fluid h-100">
       <div className="row d-flex justify-content-center align-items-center h-100">
@@ -89,7 +83,9 @@ function Registrion() {
                         <input
                           type="text"
                           id="form3Example1c"
-                          className={`form-control ${errors.usename && 'is-invalid'}`}
+                          className={`form-control ${
+                            errors.usename && "is-invalid"
+                          }`}
                           name="usename"
                           value={formData.usename}
                           onChange={handleChange}
@@ -98,17 +94,21 @@ function Registrion() {
                           Your Name
                         </label>
                         {errors.usename && (
-              <div className="invalid-feedback">{errors.usename}</div>
-            )}
+                          <div className="invalid-feedback">
+                            {errors.usename}
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="d-flex flex-row align-items-center mb-4">
                       <i className="fas fa-envelope fa-lg me-3 fa-fw" />
                       <div className="form-outline flex-fill mb-0">
                         <input
-                          type="email"
+                          type="text"
                           id="form3Example3c"
-                          className={`form-control ${errors.email && 'is-invalid'}`}
+                          className={`form-control ${
+                            errors.email && "is-invalid"
+                          }`}
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
@@ -117,8 +117,8 @@ function Registrion() {
                           Your Email
                         </label>
                         {errors.email && (
-              <div className="invalid-feedback">{errors.email}</div>
-            )}
+                          <div className="invalid-feedback">{errors.email}</div>
+                        )}
                       </div>
                     </div>
                     <div className="d-flex flex-row align-items-center mb-4">
@@ -127,7 +127,9 @@ function Registrion() {
                         <input
                           type="password"
                           id="form3Example4c"
-                          className={`form-control ${errors.password && 'is-invalid'}`}
+                          className={`form-control ${
+                            errors.password && "is-invalid"
+                          }`}
                           name="password"
                           value={formData.password}
                           onChange={handleChange}
@@ -136,8 +138,10 @@ function Registrion() {
                           Password
                         </label>
                         {errors.password && (
-              <div className="invalid-feedback">{errors.password}</div>
-            )}
+                          <div className="invalid-feedback">
+                            {errors.password}
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="d-flex flex-row align-items-center mb-4">
@@ -146,7 +150,9 @@ function Registrion() {
                         <input
                           type="password"
                           id="form3Example4cd"
-                          className={`form-control ${errors.confirmPassword && 'is-invalid'}`}
+                          className={`form-control ${
+                            errors.confirmPassword && "is-invalid"
+                          }`}
                           name="confirmPassword"
                           onChange={handleChange}
                         />
@@ -154,8 +160,10 @@ function Registrion() {
                           Repeat your password
                         </label>
                         {errors.confirmPassword && (
-              <div className="invalid-feedback">{errors.confirmPassword}</div>
-            )}
+                          <div className="invalid-feedback">
+                            {errors.confirmPassword}
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="form-check d-flex justify-content-center mb-5">
@@ -174,11 +182,7 @@ function Registrion() {
                       </label>
                     </div>
                     <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button
-                        type="submit"
-                        className="btn btn-primary btn-lg"
-                       
-                      >
+                      <button type="submit" className="btn btn-primary btn-lg">
                         Register
                       </button>
                     </div>

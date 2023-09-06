@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-import "../Componenets/SingleProduct.css";
+import "../../assets/css/SingleProduct.css";
 function SingleProduct({ product, addtocart, pro }) {
   const navigate = useNavigate();
   useEffect(() => {

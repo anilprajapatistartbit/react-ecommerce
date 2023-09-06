@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Carousel from "./Carousel";
-import logo3 from "../images/logo3.jpg";
+import logo3 from "../assets/images/logo3.jpg";
 function Home(props) {
   const location = useLocation();
   const [token, setToken] = useState(false); // You can replace this with your actual token retrieval logic
@@ -90,6 +89,11 @@ function Home(props) {
                   <li>
                     <Link to="/Admin" className="dropdown-item">
                       Product List
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/Orders" className="dropdown-item">
+                      Order List
                     </Link>
                   </li>
                   {/* Add more dropdown items here if needed */}

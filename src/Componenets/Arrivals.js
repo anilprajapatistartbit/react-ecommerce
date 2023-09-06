@@ -3,17 +3,16 @@ import "../App.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import banner1 from "../images/banner1.jpg";
-import banner2 from "../images/banner2.jpg";
-import banner3 from "../images/banner3.jpg";
-import l1 from "../images/1.png";
-import l2 from "../images/2.png";
-import l3 from "../images/3.png";
-import l4 from "../images/4.png";
-import l5 from "../images/5.png";
-import l6 from "../images/6.png";
-import l7 from "../images/7.png";
-import Menu from "./Menu";
+import banner1 from "../assets/images/banner1.jpg";
+import banner2 from "../assets/images/banner2.jpg";
+import banner3 from "../assets/images/banner3.jpg";
+import l1 from "../assets/images/1.png";
+import l2 from "../assets/images/2.png";
+import l3 from "../assets/images/3.png";
+import l4 from "../assets/images/4.png";
+import l5 from "../assets/images/5.png";
+import l6 from "../assets/images/6.png";
+import l7 from "../assets/images/7.png";
 import { useState } from "react";
 import {data} from "../App";
 export default function Arrivals() {

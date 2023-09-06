@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -48,9 +48,8 @@ function Login() {
         if (result.data === "valid User") {
           localStorage.setItem("email", email);
           localStorage.setItem("token", true);
-          toast.success('Login successfully!');
+          toast.success("Login successfully!");
           navigate("/About");
-         
         } else {
           setError("Invalid email or password");
         }
@@ -92,7 +91,7 @@ function Login() {
                     }`}
                     placeholder="Enter a valid email address"
                   />
-                   {emailError && (
+                  {emailError && (
                     <div className="invalid-feedback">{emailError}</div>
                   )}
                 </div>
@@ -107,7 +106,7 @@ function Login() {
                     value={password}
                     onChange={handlePassword}
                     className={`form-control form-control-lg ${
-                      passwordError ? 'is-invalid' : ''
+                      passwordError ? "is-invalid" : ""
                     }`}
                     placeholder="Enter password"
                   />

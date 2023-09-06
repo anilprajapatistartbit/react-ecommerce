@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-const EditProduct = (props) => {
+import { useParams ,useNavigate } from 'react-router-dom';
+const EditProduct = () => {
+  const navigate = useNavigate();
   const [product, setProduct] = useState({
+    url: '',
     name: '',
     category: '',
     seller: '',
     price: '',
   });
 
-  const { pid } = props.pid
-
+  const { pid } = useParams();
   useEffect(() => {
     // Fetch the product details from the API when the component mounts
     axios
-      .get(`https://localhost:7120/api/Registration/editupdate/${pid}`)
+      .get(`https://localhost:7120/api/Registration/edit/${pid}`)
       .then((response) => {
         const data = response.data;
+        console.log("data :-",data)
         setProduct({ ...data });
       })
       .catch((error) => {
@@ -33,21 +35,15 @@ const EditProduct = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { name, category, seller, price } = product;
-
-    // Prepare the data to send in the PUT request
-    const data = {
-      name,
-      category,
-      seller,
-      price,
-    };
+   
 
     // Make a PUT request to update the product details using Axios and the pid
     axios
-      .put(`https://localhost:7120/api/Registration/editupdate/${pid}`, data)
+      .put(`https://localhost:7120/api/Registration/update/${pid}`,product)
       .then((response) => {
         console.log('Product updated:', response.data);
+        alert("Product updated successfully")
+        navigate("/Admin")
         // Redirect or display a success message
       })
       .catch((error) => {
@@ -61,6 +57,16 @@ const EditProduct = (props) => {
       <div className="container">
         <h3>Edit Product</h3>
         <form onSubmit={handleSubmit}>
+        <div className="form-group">
+            <label>Url:</label>
+            <input
+              type="text"
+              name="url"
+              value={product.url}
+              onChange={handleInputChange}
+              className="form-control"
+            />
+          </div>
           <div className="form-group">
             <label>Name:</label>
             <input
