@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import TextInput from "../../common/TextInput"
+import PwdInput from "../../common/PwdInput"
 //import { Navigate, useNavigate } from "react-router-dom";
 function Registrion() {
   const navigate = useNavigate();
@@ -51,7 +53,7 @@ function Registrion() {
       try {
         console.log(formData);
         const response = axios.post(
-          "https://localhost:7120/api/Registration/registration",
+          "https://localhost:7015/api/Registration/registration",
           formData
         );
         alert("submit sucessfully");
@@ -80,90 +82,56 @@ function Registrion() {
                     <div className="d-flex flex-row align-items-center mb-4">
                       <i className="fas fa-user fa-lg me-3 fa-fw" />
                       <div className="form-outline flex-fill mb-0">
-                        <input
-                          type="text"
+                        <TextInput
+                         label={ "Your Name"}
                           id="form3Example1c"
-                          className={`form-control ${
-                            errors.usename && "is-invalid"
-                          }`}
                           name="usename"
                           value={formData.usename}
                           onChange={handleChange}
+                          error={errors.usename}
                         />
-                        <label className="form-label" htmlFor="form3Example1c">
-                          Your Name
-                        </label>
-                        {errors.usename && (
-                          <div className="invalid-feedback">
-                            {errors.usename}
-                          </div>
-                        )}
+                     
                       </div>
                     </div>
                     <div className="d-flex flex-row align-items-center mb-4">
                       <i className="fas fa-envelope fa-lg me-3 fa-fw" />
                       <div className="form-outline flex-fill mb-0">
-                        <input
-                          type="text"
-                          id="form3Example3c"
-                          className={`form-control ${
-                            errors.email && "is-invalid"
-                          }`}
+                        <TextInput
+                          label={ "Your Email"}
+                          id="form3Example3c"       
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
+                          error={errors.email}
                         />
-                        <label className="form-label" htmlFor="form3Example3c">
-                          Your Email
-                        </label>
-                        {errors.email && (
-                          <div className="invalid-feedback">{errors.email}</div>
-                        )}
                       </div>
                     </div>
                     <div className="d-flex flex-row align-items-center mb-4">
                       <i className="fas fa-lock fa-lg me-3 fa-fw" />
                       <div className="form-outline flex-fill mb-0">
-                        <input
+                        <PwdInput
+                         label={ "Password"}
                           type="password"
                           id="form3Example4c"
-                          className={`form-control ${
-                            errors.password && "is-invalid"
-                          }`}
                           name="password"
                           value={formData.password}
                           onChange={handleChange}
-                        />
-                        <label className="form-label" htmlFor="form3Example4c">
-                          Password
-                        </label>
-                        {errors.password && (
-                          <div className="invalid-feedback">
-                            {errors.password}
-                          </div>
-                        )}
+                          error={errors.password}
+                        />                      
                       </div>
                     </div>
                     <div className="d-flex flex-row align-items-center mb-4">
                       <i className="fas fa-key fa-lg me-3 fa-fw" />
                       <div className="form-outline flex-fill mb-0">
-                        <input
+                        <PwdInput
+                        label={"Repeat your password"}
                           type="password"
                           id="form3Example4cd"
-                          className={`form-control ${
-                            errors.confirmPassword && "is-invalid"
-                          }`}
                           name="confirmPassword"
                           onChange={handleChange}
+                          error={errors.confirmPassword}
                         />
-                        <label className="form-label" htmlFor="form3Example4cd">
-                          Repeat your password
-                        </label>
-                        {errors.confirmPassword && (
-                          <div className="invalid-feedback">
-                            {errors.confirmPassword}
-                          </div>
-                        )}
+                       
                       </div>
                     </div>
                     <div className="form-check d-flex justify-content-center mb-5">

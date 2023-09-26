@@ -3,6 +3,8 @@ import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TextInput from "../../common/TextInput";
+import PwdInput from  "../../common/PwdInput";
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -10,6 +12,7 @@ function Login() {
   const [error, setError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
   console.log({ email, password });
   const handleEmail = (e) => {
     const enteredEmail = e.target.value;
@@ -39,13 +42,14 @@ function Login() {
   const handleApi = () => {
     console.log({ email, password });
     axios
-      .post("https://localhost:7120/api/Registration/login", {
+      .post("https://localhost:7015/api/Registration/login", {
         email: email,
         password: password,
       })
       .then((result) => {
         console.log(result.data);
         if (result.data === "valid User") {
+         
           localStorage.setItem("email", email);
           localStorage.setItem("token", true);
           toast.success("Login successfully!");
@@ -59,7 +63,7 @@ function Login() {
         console.log(error);
       });
   };
-
+  
   return (
     <>
       <section style={{ marginTop: "5%" }}>

@@ -4,18 +4,20 @@ import { useParams ,useNavigate } from 'react-router-dom';
 const EditProduct = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({
-    url: '',
     name: '',
     category: '',
     seller: '',
     price: '',
+    quantity:0,
+    disciption:"",
+   // images:[]
   });
 
   const { pid } = useParams();
   useEffect(() => {
     // Fetch the product details from the API when the component mounts
     axios
-      .get(`https://localhost:7120/api/Registration/edit/${pid}`)
+      .get(`https://localhost:7015/api/Product/EditProduct/${pid}`)
       .then((response) => {
         const data = response.data;
         console.log("data :-",data)
@@ -39,7 +41,7 @@ const EditProduct = () => {
 
     // Make a PUT request to update the product details using Axios and the pid
     axios
-      .put(`https://localhost:7120/api/Registration/update/${pid}`,product)
+      .put(`https://localhost:7015/api/Product/UpdateProduct/${pid}`,product)
       .then((response) => {
         console.log('Product updated:', response.data);
         alert("Product updated successfully")
@@ -57,16 +59,6 @@ const EditProduct = () => {
       <div className="container">
         <h3>Edit Product</h3>
         <form onSubmit={handleSubmit}>
-        <div className="form-group">
-            <label>Url:</label>
-            <input
-              type="text"
-              name="url"
-              value={product.url}
-              onChange={handleInputChange}
-              className="form-control"
-            />
-          </div>
           <div className="form-group">
             <label>Name:</label>
             <input
@@ -103,6 +95,26 @@ const EditProduct = () => {
               type="text"
               name="price"
               value={product.price}
+              onChange={handleInputChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label>Quantity:</label>
+            <input
+              type="number"
+              name="quantity"
+              value={product.quantity}
+              onChange={handleInputChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label>Discription:</label>
+            <input
+              type="text"
+              name="disciption"
+              value={product.disciption}
               onChange={handleInputChange}
               className="form-control"
             />

@@ -14,10 +14,10 @@ import axios from 'axios';
 function Orders() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-
+  const userLoginId =   localStorage.getItem("email")
   useEffect(() => {
     // Get all users details in bootstrap table
-    axios.get("https://localhost:7120/api/Registration/getallcheckout")
+    axios.get(`https://localhost:7015/api/Orders/Getall?userId=${userLoginId}`)
       .then(res => {
         // Storing users detail in state array object
         setData(res.data);
@@ -39,11 +39,11 @@ function Orders() {
         <table id="example" className="table table-hover table-bordered">
           <thead>
             <tr>
-              <th>FullName</th>
-              <th>Email</th>
-              <th>Address</th>
-              <th>City</th>
-              <th>State</th>
+              <th>UserId</th>
+              <th>OrderDate</th>
+              <th>TransactionID</th>
+              <th>Total</th>
+              <th>Currency</th>
               
             </tr>
           </thead>
@@ -51,14 +51,12 @@ function Orders() {
             {data.map((result) => {
              
               return (
-                <tr key={result.cid}>
-                 
-                  <td>{result.fullname}</td>
-                  <td>{result.email}</td>
-                  <td>{result.address}</td>
-                  <td>{result.city}</td>
-                  <td>{result.state}</td>
-                 
+                <tr key={result.id}>
+                    <td>{result.userId}</td>
+                    <td>{result.orderDate}</td>
+                    <td>{result.transactionID}</td>
+                    <td>{result.total}</td>
+                   <td>{result.currency}</td>       
                 </tr>
               )
             })}

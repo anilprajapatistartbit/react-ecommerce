@@ -43,7 +43,7 @@ export default function Arrivals() {
   const [produc, setitems] = useState(product);
   const filterItem = (categItem) => {
     const updateItems = product.filter((curElm) => {
-      return curElm.category == categItem;
+      return curElm.product.category == categItem;
     });
     setitems(updateItems);
   };
@@ -65,7 +65,12 @@ export default function Arrivals() {
           <Carousel responsive={responsive}>
           {product.map((prod) => {return(<>
             <div className="sliderlist">
-              <img src={prod.url[0]} height="300" />
+              <img 
+               src={`https://localhost:7015/images/${
+                prod?.images[0]?.url
+              }`}
+              
+              height="300" />
               <div className="overlay1">
                 <p>{prod.category}</p>
                 <p>{prod.price} </p>
@@ -175,7 +180,11 @@ export default function Arrivals() {
                     <div className="item1 col-12 col-md-6 col-lg-6 col-xl-3 my-3">
                       <div class="card">
                         
-                        <img src={elem.url[0]} className="image" />
+                        <img 
+                        src={`https://localhost:7015/images/${
+                          elem?.images[0]?.url
+                        }`}
+                        className="image" />
                         
                         <div class="card-body">
                           <h6 class="title product-title">

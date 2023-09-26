@@ -18,7 +18,7 @@ function Admin() {
 
   useEffect(() => {
     // Get all users details in bootstrap table
-    axios.get("https://localhost:7120/api/Registration/getall")
+    axios.get("https://localhost:7015/api/Product/Getall")
       .then(res => {
         // Storing users detail in state array object
         setData(res.data);
@@ -30,12 +30,13 @@ function Admin() {
     }, 1000);
   }, []);
 
-  const handleDelete = async (pid) => {
+  const handleDelete = async (id) => {
     try {
-      console.log(pid);
-      const response = await axios.delete(`https://localhost:7120/api/Registration/delete/${pid}`);
+      console.log(id);
+      const response = await axios.delete(`https://localhost:7015/api/Product/DeleteProduct/${id}`);
       console.log(response.data);
       alert("Delete successfully");
+     
       // You can perform other actions after successful deletion here.
     } catch (error) {
       console.error("Error deleting:", error);
@@ -76,20 +77,21 @@ function Admin() {
           </thead>
           <tbody>
             {data.map((result) => {
-              console.log("Deleting pid:", result.pid);
+        
               return (
-                <tr key={result.pid}>
+                <tr key={result.product.pid}>
                  
-                  <td>{result.name}</td>
-                  <td>{result.category}</td>
-                  <td>{result.seller}</td>
-                  <td>{result.price}</td>
+                  <td>{result.product.name}</td>
+                  <td>{result.product.category}</td>
+                  <td>{result.product.seller}</td>
+                  <td>{result.product.price}</td>
                   <td>
-                    <button type='button' className="btn btn-danger" onClick={() => handleDelete(result.pid)}>Delete</button>
+                    <button type='button' className="btn btn-danger" onClick={() => handleDelete(result.product.pid)}>Delete</button>
                     
                     <Link
-                      to={`/EditProduct/${result.pid}`} // Use a dynamic URL parameter for the product ID
-                      className="btn btn-primary"
+                      to={`/EditProduct/${result.product.pid}`} // Use a dynamic URL parameter for the product ID
+                      className="btn btn-success"
+                      style={{marginLeft:'20px',width:'70px'}}
                     >
                       Edit
                     </Link>

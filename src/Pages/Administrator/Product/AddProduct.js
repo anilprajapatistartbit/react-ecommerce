@@ -8,19 +8,20 @@ function AddProduct() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     pid: 0,
-    url: [],
     name: "",
     category: "",
     seller: "",
     price: "",
+    quantity:1,
+    disciption:"",
+    images:[]
   });
   const [errors, seterrors] = useState({});
   
-  const handleUrlChange = (e) => {
-    const url = e.target.value.split(',');
-    setFormData({ ...formData, url });
+  const handleImageChange = (e) => {
+    const files = e.target.files;
+    setFormData({ ...formData, images: files });
   };
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,11 +33,23 @@ function AddProduct() {
   const handleSubmit = (e) => {
     let isValid = true;
     e.preventDefault();
+    const formDataToSend = new FormData();
+
+    // Append all form data fields
+    formDataToSend.append('pid', formData.pid);
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('category', formData.category);
+    formDataToSend.append('seller', formData.seller);
+    formDataToSend.append('price', formData.price);
+    formDataToSend.append('quantity', formData.quantity);
+    formDataToSend.append('disciption', formData.disciption);
+  
+    // Append each selected image
+    for (let i = 0; i < formData.images.length; i++) {
+      formDataToSend.append('images', formData.images[i]);
+    }
+
     const validationerror = {};
-    // if (!formData.url.trim()) {
-    //   validationerror.url = "url is required";
-    //   isValid = false;
-    // }
     if (!formData.name.trim()) {
       validationerror.name = "name is required";
       isValid = false;
@@ -53,17 +66,30 @@ function AddProduct() {
       validationerror.price = "price is required";
       isValid = false;
     }
+    // if (!formData.quantity.trim()) {
+    //   validationerror.quantity = "quantity is required";
+    //   isValid = false;
+    // }
+    if (!formData.disciption.trim()) {
+      validationerror.disciption = "disciption is required";
+      isValid = false;
+    }
+    //  if (!formData.images.trim()) {
+    //   validationerror.images = "images is required";
+    //    isValid = false;
+    //  }
   
     if (isValid) {
       try {
         console.log(formData);
         const response = axios.post(
-          "https://localhost:7120/api/Registration/product",
-          formData
+          "https://localhost:7015/api/Product",
+          formDataToSend
         );
         alert('Product added successfully!');
-        toast.success('Product added successfully!');
         navigate("/Admin");
+        toast.success('Product added successfully!');
+      
         console.log(response.data); // You can handle the response as needed
        
       } catch (error) {
@@ -86,22 +112,6 @@ function AddProduct() {
         <h2>Add Product</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="url" className="form-label">
-              Url
-            </label>
-            <input
-              type="text"
-              id="form3Example1c"
-              className={`form-control ${errors.url && "is-invalid"}`}
-              name="url"
-              value={formData.url.join(',')}
-             onChange={handleUrlChange}
-            />
-             {errors.url && (
-              <div className="invalid-feedback">{errors.url}</div>
-            )}
-          </div>
-          <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Name
             </label>
@@ -117,22 +127,27 @@ function AddProduct() {
               <div className="invalid-feedback">{errors.name}</div>
             )}
           </div>
-          <div className="mb-3 ">
-            <label className="form-label" htmlFor="category">
-              Category
-            </label>
-            <input
-              type="text"
-              id="form3Example1c"
-              className={`form-control ${errors.category && "is-invalid"}`}
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-            />
-             {errors.category && (
-              <div className="invalid-feedback">{errors.category}</div>
-            )}
-          </div>
+          <div className="mb-3">
+        <label className="form-label" htmlFor="category">
+          Category
+        </label>
+        <select
+          id="form3Example1c"
+          className={`form-select ${errors.category && "is-invalid"}`}
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+        >
+          <option value="">--Select--</option>
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+          <option value="Kids">Kids</option>
+          {/* Add more options as needed */}
+        </select>
+        {errors.category && (
+          <div className="invalid-feedback">{errors.category}</div>
+        )}
+      </div>
           <div className="mb-3 ">
             <label className="form-label" htmlFor="seller">
               Seller
@@ -165,6 +180,55 @@ function AddProduct() {
               <div className="invalid-feedback">{errors.price}</div>
             )}
           </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="price">
+              Quantity
+            </label>
+            <input
+              type="number"
+              id="form3Example1c"
+              className={`form-control ${errors.quantity && "is-invalid"}`}
+              name="quantity"
+              value={formData.quantity}
+              onChange={handleChange}
+            />
+             {errors.quantity && (
+              <div className="invalid-feedback">{errors.quantity}</div>
+            )}
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="price">
+              Discription
+            </label>
+            <input
+              type="text"
+              id="form3Example1c"
+              className={`form-control ${errors.disciption && "is-invalid"}`}
+              name="disciption"
+              value={formData.disciption}
+              onChange={handleChange}
+            />
+             {errors.disciption && (
+              <div className="invalid-feedback">{errors.disciption}</div>
+            )}
+          </div>
+          <div className="mb-3">
+            <label htmlFor="url" className="form-label">
+              Image
+            </label>
+            <input
+              type="file"
+              id="form3Example1c"
+             className={`form-control ${errors.images && "is-invalid"}`}
+              name="images"
+              multiple // Allow multiple file selection
+            onChange={handleImageChange} // Update the function name
+            />
+  {errors.images && (
+    <div className="invalid-feedback">{errors.images}</div>
+  )}
+          </div>
+
           <button type="submit"
             className="btn btn-primary btn-lg">
             Add

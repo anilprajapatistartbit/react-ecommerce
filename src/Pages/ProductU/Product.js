@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-function Product({ product, addtocart, singlepro }) {
+function Product({ product, addtocart, singlepro,Images }) {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(product);
@@ -14,8 +14,9 @@ function Product({ product, addtocart, singlepro }) {
   }, [navigate]);
 
   useEffect(() => {
+    console.log("productsss",product)
     const filtered = product.filter((productItem) =>
-      productItem.name.toLowerCase().includes(searchTerm.toLowerCase())
+      productItem.product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProducts(filtered);
     setCurrentPage(1); // Reset to first page when the search term changes
@@ -53,7 +54,6 @@ function Product({ product, addtocart, singlepro }) {
   return (
     <>
       <div className="container" style={{ marginTop: "2%" }}>
-       
         <div style={{ marginLeft: "40px" }}>
           <label>Search:</label>{" "}
           <input
@@ -64,50 +64,62 @@ function Product({ product, addtocart, singlepro }) {
             style={{ marginBottom: "1rem", width: "26%" }}
           />
         </div>
-        <div style={{marginLeft:'auto',marginRight:'auto',width:'1000px'}}>
-        <div className="row">
-        
-          {currentProducts.map((productItem) => {
-            return (
-              <div
-                className="card col-md-4"
-                style={{ margin: "5px",padding:'0px',width:'32%',height:'450px'}}
-                key={productItem.id}
-              >
-                <div className="card-image">
-                  <img
-                    src={productItem.url[0]}
-                    width="100%"
-                    height="300"
-                    alt={productItem.name}
-                  />
-                </div>
-                <div className="card-body">
-                  <p className="title product-title">
-                    {productItem.name} | {productItem.category}
-                  </p>
-                  <div className="content">
-                    {productItem.seller}
-                    <br />
+        <div
+          style={{ marginLeft: "auto", marginRight: "auto", width: "1000px" }}
+        >
+          <div className="row">
+            {currentProducts.map((productItem) => {
+              return (
+                <div
+                  className="card col-md-4"
+                  style={{
+                    margin: "5px",
+                    padding: "0px",
+                    width: "32%",
+                    height: "450px",
+                  }}
+                  key={productItem.product.id}
+                >
+                   <div className="card-image">
+                    {console.log(productItem)}
+                    <img
+                      src={`https://localhost:7015/images/${
+                        productItem?.images[0]?.url
+                      }`}
+                      //src={productItem.images}
+                      width="100%"
+                      height="300"
+                      alt={productItem.product
+                        .name}
+                    />
+                  </div>  
+                  <div className="card-body">
+                    <p className="title product-title">
+                      {productItem.product.name} | {productItem.product
+.category}
+                    </p>
+                    <div className="content">
+                      {productItem.seller}
+                      <br />
+                    </div>
+                    <button
+                      onClick={() => addtocart(productItem)}
+                      className="btn btn-primary"
+                    >
+                      Add To Cart
+                    </button>
+                    <button
+                      style={{ float: "right", width: "30%" }}
+                      onClick={() => pdetail(productItem)}
+                      className="btn btn-primary"
+                    >
+                      View
+                    </button>
                   </div>
-                  <button
-                    onClick={() => addtocart(productItem)}
-                    className="btn btn-primary"
-                  >
-                    Add To Cart
-                  </button>
-                  <button
-                    style={{ float: "right", width: "30%" }}
-                    onClick={() => pdetail(productItem)}
-                    className="btn btn-primary"
-                  >
-                    View
-                  </button>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="pagination">
@@ -137,7 +149,6 @@ function Product({ product, addtocart, singlepro }) {
           </button>
         </div>
       </div>
-     
     </>
   );
 }

@@ -30,15 +30,18 @@ function SingleProduct({ product, addtocart, pro }) {
                     <div className="preview-pic tab-content">
                       <div className="tab-pane active" id="pic-1">
                         <img
-                          src={proitem.url[mainImage]}
+                          //src={proitem.url[mainImage]}
+                          src={`https://localhost:7015/images/${
+                        proitem?.images[0]?.url
+                      }`}
                           key={index}
                           style={{ height: "425px", width: "85%" }}
                         ></img>
                       </div>
                     </div>
                     <div className="row thumbnail-images">
-                      {proitem.url.length > 0 &&
-                        proitem.url.map((item, index) => (
+                      {proitem?.images?.length > 0 &&
+                        proitem.images.map((item, index) => (
                           <div className="col-md-3">
                             <img
                               src={item}
@@ -47,11 +50,11 @@ function SingleProduct({ product, addtocart, pro }) {
                             />
                           </div>
                         ))}
-                    </div>
+                    </div> 
                   </div>
                   <div className="details col-md-7">
                     <h3 className="product-title">
-                      {proitem.name} | {proitem.category}
+                      {proitem.product.name} | {proitem.product.category}
                     </h3>
                     <div className="rating">
                       <div className="stars">
@@ -64,12 +67,10 @@ function SingleProduct({ product, addtocart, pro }) {
                       <span className="review-no">41 reviews</span>
                     </div>
                     <p className="product-description">
-                      Suspendisse quos? Tempus cras iure temporibus? Eu
-                      laudantium cubilia sem sem! Repudiandae et! Massa senectus
-                      enim minim sociosqu delectus posuere.
+                    ${proitem.product.disciption}
                     </p>
                     <h4 className="price">
-                      current price: <span>${proitem.price}</span>
+                      current price: <span>${proitem.product.price}</span>
                     </h4>
                     <p className="vote">
                       <strong>91%</strong> of buyers enjoyed this product!{" "}
@@ -88,7 +89,7 @@ function SingleProduct({ product, addtocart, pro }) {
                         data-toggle="tooltip"
                         title="small"
                       >
-                        {proitem.seller}
+                        {proitem.product.seller}
                       </span>
                     </h5>
 
