@@ -7,7 +7,7 @@ import 'jquery/dist/jquery.min.js';
 import "datatables.net-dt/js/dataTables.dataTables"
 import "datatables.net-dt/css/jquery.dataTables.min.css"
 import $ from 'jquery'; 
-
+import Loader from "react-spinners/ClipLoader";
 
 import axios from 'axios';
 
@@ -15,28 +15,36 @@ import axios from 'axios';
 function Admin() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     // Get all users details in bootstrap table
-    axios.get("https://localhost:7015/api/Product/Getall")
-      .then(res => {
-        // Storing users detail in state array object
-        setData(res.data);
-      });
-    
+    fetchData();
     // Initialize datatable
     setTimeout(function () {
       $('#example').DataTable();
     }, 1000);
   }, []);
-
+  const fetchData = () => {
+    setLoading(true); // Set loading to true when fetching data
+    axios.get("https://localhost:7015/api/Product/Getall")
+      .then(res => {
+        setData(res.data);
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      })
+      .finally(() => {
+        setLoading(false); // Set loading to false regardless of success or error
+      });
+  };
   const handleDelete = async (id) => {
     try {
-      console.log(id);
+      setLoading(true);
       const response = await axios.delete(`https://localhost:7015/api/Product/DeleteProduct/${id}`);
       console.log(response.data);
-      alert("Delete successfully");
      
+      alert("Delete successfully");
+      fetchData();
       // You can perform other actions after successful deletion here.
     } catch (error) {
       console.error("Error deleting:", error);
@@ -57,11 +65,30 @@ function Admin() {
     );
   };
 
-  return (
-    <div className="MainDiv">
-      <div className="jumbotron text-center">
-        <h3>Product List</h3>
-      </div>
+  return (<>
+    <div>
+          {/* mian-content */}
+          <div className="main-banner inner" id="home">
+            
+          </div>
+         {/*//main-content*/}
+          {/**/}
+          <ol className="breadcrumb">
+           <li className="breadcrumb-item">
+              <a href="index.html">PRODUCT LIST</a>
+           </li>
+           
+          </ol>
+           {/**/}
+         </div>
+         {loading ? ( // Conditional rendering based on the loading state
+        <div className="text-center">
+          <Loader color="#007bff" loading={loading} size={50} /> {/* Render the loader */}
+        </div>
+      ) : (
+
+    <div className="MainDiv" style={{marginTop:"40px",marginBottom:"40px"}}>
+     
 
       <div className="container">
         <NavigateButton />
@@ -103,7 +130,8 @@ function Admin() {
         </table>
       </div>
     </div>
-  );
+      )}
+    </>  );
 }
 
 export default Admin;

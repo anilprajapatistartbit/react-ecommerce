@@ -20,6 +20,7 @@ import EditProduct from "./Pages/Administrator/Product/EditProduct";
 import Orders from "./Pages/Administrator/Order/Orders";
 import Success from "./Componenets/Success";
 import Address from "./Componenets/Address";
+import Header from "./Componenets/Header";
 const data = createContext();
 function App() {
  
@@ -54,7 +55,7 @@ function App() {
 
   let addtocart = (data) => {
     //console.log(setcart)
-    setcart([...cart, { ...data, quantity: 1 }]);
+    setcart([...cart, { ...data }]);
   };
   let [pro, setpro] = useState([]);
   let singlepro = (data) => {
@@ -63,9 +64,10 @@ function App() {
   return (
     <data.Provider value={product}>
       <BrowserRouter>
-        <Home count={cart.length} product={product} />
+       <Header count={cart.length} product={product} /> 
 
         <Routes>
+        <Route path="/home"  element={<Home/>}/>
           <Route path="/About" element={<About />} />
 
           <Route

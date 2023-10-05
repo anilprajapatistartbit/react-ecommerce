@@ -108,8 +108,22 @@ function AddProduct() {
   };
   return (
     <>
-      <div className="container">
-        <h2>Add Product</h2>
+       <div>
+       <div className="main-banner inner" id="home">
+            
+          </div>
+         {/*//main-content*/}
+          {/**/}
+          <ol className="breadcrumb">
+           <li className="breadcrumb-item">
+              <a href="index.html">PRODUCT LIST</a>
+           </li>
+            <li className="breadcrumb-item active">ADD PRODUCT</li>
+          </ol>
+           {/**/}
+         </div>
+      <div className="container" style={{marginTop:"40px",marginBottom:"100px"}}>
+        
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
@@ -228,20 +242,20 @@ function AddProduct() {
     <div className="invalid-feedback">{errors.images}</div>
   )}
           </div>
-
+          <button                
+                   onClick={() => pdetail(pdetail)}
+                    className="payment-address"
+                    style={{ width: "135px",float:"right" }}
+                  >Back</button>
           <button type="submit"
-            className="btn btn-primary btn-lg">
+            className="payment-address" style={{ width: "135px",float:"right" ,marginRight:"10px"}}>
             Add
           </button>
-          <button
-                   
-                    onClick={() => pdetail(pdetail)}
-                    className="btn btn-warning  btn-lg"
-                  >Back</button>
+        
         </form>
        
       </div>
-      <ToastContainer position="top-right" autoClose={8000} />
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 }

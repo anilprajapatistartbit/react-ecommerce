@@ -45,7 +45,7 @@ const EditProduct = () => {
       .then((response) => {
         console.log('Product updated:', response.data);
         alert("Product updated successfully")
-        navigate("/Admin")
+        navigate("/Admin");
         // Redirect or display a success message
       })
       .catch((error) => {
@@ -53,11 +53,30 @@ const EditProduct = () => {
         // Handle the error, display an error message, or redirect to an error page
       });
   };
+  const pdetail = () => {
+    navigate("/Admin");
+  
+  };
+  return (<>
+      <div>
+       <div className="main-banner inner" id="home">
+            
+          </div>
+         {/*//main-content*/}
+          {/**/}
+          <ol className="breadcrumb">
+           <li className="breadcrumb-item">
+              <a href="index.html">PRODUCT LIST</a>
+           </li>
+            <li className="breadcrumb-item active">UPDATE PRODUCT</li>
+          </ol>
+           {/**/}
+         </div>
 
-  return (
-    <div className="MainDiv">
+
+    <div className="MainDiv" style={{marginTop:"40px",marginBottom:"100px"}}>
       <div className="container">
-        <h3>Edit Product</h3>
+       
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Name:</label>
@@ -119,12 +138,18 @@ const EditProduct = () => {
               className="form-control"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button                
+                   onClick={() => pdetail(pdetail)}
+                    className="payment-address"
+                    style={{ width: "135px",float:"right" }}
+                  >Back</button>
+          <button type="submit"  className="payment-address" style={{ width: "135px",float:"right" ,marginRight:"10px"}}>
             Update
           </button>
         </form>
       </div>
     </div>
+  </>
   );
 };
 

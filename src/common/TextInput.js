@@ -10,7 +10,7 @@ const TextInput = ({ label, name, value, onChange, placeholder, iconClass, isReq
     };
   
     return (
-      <div className="form-group">
+      <div >
         <label htmlFor={name}>
           {iconClass && <i className={iconClass} />} {label}
           {isRequired && <span className="required-field">*</span>}

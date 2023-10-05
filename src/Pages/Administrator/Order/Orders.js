@@ -28,12 +28,28 @@ function Orders() {
       $('#example').DataTable();
     }, 1000);
   }, []);
-  return (
-    <div className="MainDiv">
-      <div className="jumbotron text-center">
-        <h3>Order List</h3>
-      </div>
-
+  return (<>
+  <div>
+          {/* mian-content */}
+          <div className="main-banner inner" id="home">
+            
+          </div>
+         {/*//main-content*/}
+          {/**/}
+          <ol className="breadcrumb">
+           <li className="breadcrumb-item">
+              <a href="index.html">ORDER LIST</a>
+           </li>
+           
+          </ol>
+           {/**/}
+         </div>
+  
+  
+  
+ 
+    <div className="MainDiv"style={{marginTop:"40px",marginBottom:"40px"}}>
+      
       <div className="container">
       
         <table id="example" className="table table-hover table-bordered">
@@ -64,7 +80,7 @@ function Orders() {
         </table>
       </div>
     </div>
-  );
+    </> );
 }
 
 export default Orders;

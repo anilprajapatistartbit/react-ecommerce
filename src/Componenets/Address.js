@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
 import TextInput from "../common/TextInput";
 import "../assets/css/Checkout.css";
 import { loadStripe } from "@stripe/stripe-js";
@@ -70,22 +70,37 @@ function Address() {
   return (
     
     <>
+    <div>
+          {/* mian-content */}
+          <div className="main-banner inner" id="home">
+            
+          </div>
+         {/*//main-content*/}
+          {/**/}
+          <ol className="breadcrumb">
+           <li className="breadcrumb-item">
+              <Link to="/BillingAddress">BILLING DETAILS</Link>
+           </li>
+           <li className="breadcrumb-item active">ADDRESS</li>
+          </ol>
+           {/**/}
+         </div>
       <div class="row">
         <div class="col-50">
           <div
             class="container"
             style={{
-              background: "#f2f2f2",
+             
               padding: "30px 30px 30px 30px",
-              border: "1px solid lightgrey",
-              marginBottom: "5%",
+             
+              marginBottom: "40px",
               //float: "left",
             }}
           >
             <form onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-50">
-                  <h3>Add New Address</h3>
+                  <h4>Add New Address</h4>
                   <TextInput
                     label={"Address"}
                     name={"StreetAddress"}
@@ -140,14 +155,22 @@ function Address() {
                   </div>
                 </div>
               </div>
+              <button
+                
+                value="Back"
+                className="payment-address"
+                style={{ width: "135px",float:"right" }}
+                
+              ><Link  to="/BillingAddress" style={{color:"white",textDecoration:"hide"}}>Back</Link></button>
               <input
                 type="submit"
                 value="Add"
-                defaultValue="Continue to checkout"
-                className="btn btn-outline-primary"
-                style={{ width: "100%" }}
+              
+                className="payment-address"
+                style={{ width: "135px",float:"right" ,marginRight:"10px"}}
                 
               />
+                
             </form>
           </div>
         </div>

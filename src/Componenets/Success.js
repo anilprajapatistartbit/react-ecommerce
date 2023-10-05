@@ -13,21 +13,26 @@ function Success() {
     const navigate = useNavigate();
     const fetchDataAndSendToAPI = async () => {
       try {
-        var obj = localStorage.getItem("cart");
-        var cart = JSON.parse(obj)
+        const cart = JSON.parse(localStorage.getItem("cart"));
+        //send data
+        let fitereddate= [];
+        cart?.forEach(element => {
+        const img = element.images.filter((el)=>el.productId==element.product.pid)
+        fitereddate.push({...element.product,images:img})
+        });
 
         var BillingId = localStorage.getItem("cid");
 
         var user = localStorage.getItem("email")
         //console.log(JSON.parse(cart));
-        for (let index = 0; index < cart.length; index++) {
-        cart[index].url = "";
+        // for (let index = 0; index < cart.length; index++) {
+        // cart[index].url = "";
         
           
-        }
+        // }
         var session_id = window.location.search.split("=")[1]
         console.log(user);
-        const response = await axios.post(`https://localhost:7015/api/Payment/success/${session_id}`,{ items: cart,userId:user,BillingId:BillingId});
+        const response = await axios.post(`https://localhost:7015/api/Payment/success/${session_id}`,{ items: fitereddate,userId:user,BillingId:BillingId});
         console.log(response);
         
       } catch (error) {
@@ -46,11 +51,26 @@ function Success() {
 
 
     const pdetail = () => {
-        navigate("/About");
+        navigate("/Home");
       
       };      
     return (
       <div>
+         <div>
+          {/* mian-content */}
+          <div className="main-banner inner" id="home">
+            
+          </div>
+         {/*//main-content*/}
+          {/**/}
+          <ol className="breadcrumb">
+           <li className="breadcrumb-item">
+              <a href="index.html">ThankYou</a>
+           </li>
+            
+          </ol>
+           {/**/}
+         </div>
         <div className="vh-100 d-flex justify-content-center align-items-center">
           <div>
             <div className="mb-4 text-center">
