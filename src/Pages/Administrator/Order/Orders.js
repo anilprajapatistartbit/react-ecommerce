@@ -17,7 +17,7 @@ function Orders() {
   const userLoginId =   localStorage.getItem("email")
   useEffect(() => {
     // Get all users details in bootstrap table
-    axios.get(`https://localhost:7015/api/Orders/Getall?userId=${userLoginId}`)
+    axios.get("https://localhost:7015/api/Orders/Getallorder")
       .then(res => {
         // Storing users detail in state array object
         setData(res.data);

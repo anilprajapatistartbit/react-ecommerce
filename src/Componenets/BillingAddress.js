@@ -12,8 +12,10 @@ function BillingAddress() {
     email: "",
   });
   const handleRadioChange = (Address, country, state, city, zip) => {
+    console.log(Address, country, state, city, zip);
     setFormData({ ...formData, Address, country, state, city, zip }); 
     // Update selected address when radio button is checked
+    
   };
 
   useEffect(() => {
@@ -55,10 +57,10 @@ function BillingAddress() {
       validationerror.email = "Invalid email format";
       isValid = false;
     }
-    // if (selectedAddress === null) {
-    //   alert("Please select an address before submitting.");
-    //   return;
-    // }
+    if (!formData.Address) {
+     alert("Please select an address before submitting.");
+     isValid = false;
+    }
     if (isValid) {
       try {
         console.log(formData);
@@ -186,10 +188,9 @@ function BillingAddress() {
                   <input
                     type="radio"
                     name="selectedAddress"
-                    defaultChecked
                     value={result.cid}
-                    onChange={() =>
-                      handleRadioChange(
+                    onClick={() =>
+                      handleRadioChange(              
                         result?.streetAddress ?? "",
                         result?.country ?? "",
                         result?.state ?? "",
@@ -199,7 +200,7 @@ function BillingAddress() {
                     }
                   />
                   <h6 className="card-title">
-                    {" "}
+                   
                     StreetAddress :- {result.streetAddress}{" "}
                   </h6>
                   <h6 className="card-title"> Country :- {result.country}</h6>

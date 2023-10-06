@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate ,Link} from "react-router-dom";
+import { useNavigate ,Link, useLocation} from "react-router-dom";
 import "../../assets/css/SingleProduct.css";
-import one from "../../assets/images/s1.jpg";
-import two from "../../assets/images/s2.jpg";
-import three from "../../assets/images/s3.jpg";
-function SingleProduct({ product, addtocart, pro }) {
+
+function SingleProduct({  addtocart, pro }) {
+ // const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
     }
   }, []);
+
+ // const productItem = location.state?.productItem;
   const [mainImage, setMainImage] = useState(0);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
-
+ 
   const addToCart = (proitem) => {
     if (!isAddedToCart) {
       addtocart(proitem);
@@ -42,87 +43,6 @@ function SingleProduct({ product, addtocart, pro }) {
           {pro.map((proitem, index) => {
             return (
               <>
-                {/* <div className="wrapper row">
-                  <div className="preview col-md-5">
-                    <div className="preview-pic tab-content">
-                      <div className="tab-pane active" id="pic-1">
-                        <img
-                          //src={proitem.url[mainImage]}
-                          src={`https://localhost:7015/images/${
-                        proitem?.images[0]?.url
-                      }`}
-                          key={index}
-                          style={{ height: "425px", width: "85%" }}
-                        ></img>
-                      </div>
-                    </div>
-                    <div className="row thumbnail-images">
-                      {proitem?.images?.length > 0 &&
-                        proitem.images.map((item, index) => (
-                          <div className="col-md-3">
-                            <img
-                              src={item}
-                              style={{ height: "85px", width: "85px" }}
-                              onClick={() => setMainImage(index)}
-                            />
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                  <div className="details col-md-7">
-                    <h3 className="product-title">
-                      {proitem.product.name} | {proitem.product.category}
-                    </h3>
-                    <div className="rating">
-                      <div className="stars">
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star checked" />
-                        <span className="fa fa-star" />
-                        <span className="fa fa-star" />
-                      </div>
-                      <span className="review-no">41 reviews</span>
-                    </div>
-                    <p className="product-description">
-                    ${proitem.product.disciption}
-                    </p>
-                    <h4 className="price">
-                      current price: <span>${proitem.product.price}</span>
-                    </h4>
-                    <p className="vote">
-                      <strong>91%</strong> of buyers enjoyed this product!{" "}
-                      <strong>(87 votes)</strong>
-                    </p>
-                    {/* <h5 className="sizes">sizes:
-              <span className="size" data-toggle="tooltip" title="small">s</span>
-              <span className="size" data-toggle="tooltip" title="medium">m</span>
-              <span className="size" data-toggle="tooltip" title="large">l</span>
-              <span className="size" data-toggle="tooltip" title="xtra large">xl</span>
-            </h5> */}
-                    {/* <h5 className="sizes">
-                      Brand:
-                      <span
-                        className="size"
-                        data-toggle="tooltip"
-                        title="small"
-                      >
-                        {proitem.product.seller}
-                      </span>
-                    </h5>
-
-                    <div className="action">
-                      <button
-                        className="add-to-cart btn btn-default"
-                        onClick={() => addtocart(proitem)}
-                        type="button"
-                      >
-                        add to cart
-                      </button>
-                    </div>
-                  </div>
-                </div> */} 
-
-
 <section className="ab-info-main py-md-5 py-4">
             <div class="container py-md-3">
               <div className="row">

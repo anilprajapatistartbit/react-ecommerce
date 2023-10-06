@@ -952,7 +952,7 @@ footer p {
 }
 
 form.w3layouts-newsletter {
-    display: flex;
+    /* display: flex; */
     margin-bottom: 2.5em;
 }
 
@@ -960,7 +960,7 @@ form.w3layouts-newsletter {
     border-top: 1px solid #ddd;
 }
 
-.w3layouts-newsletter input[type="email"] {
+.w3layouts-newsletter input[type="text"] {
     padding: 0.6em 1em;
     font-size: 15px;
     color: #000;

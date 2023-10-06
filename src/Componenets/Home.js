@@ -1,156 +1,34 @@
-import React, { useContext } from "react";
-import { Link} from "react-router-dom";
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link ,useNavigate} from "react-router-dom";
 import "../assets/css/style.css"
 import "../assets/css/font-awesome.css"
-import s1 from "../assets/images/s1.jpg"
-import s2 from "../assets/images/s2.jpg"
-import s3 from "../assets/images/s3.jpg"
-import s4 from "../assets/images/s4.jpg"
-import s5 from "../assets/images/s5.jpg"
-import s6 from "../assets/images/s6.jpg"
-import s7 from "../assets/images/s7.jpg"
-import s8 from "../assets/images/s8.jpg"
-import s9 from "../assets/images/s9.jpg"
 import img1 from "../assets/images/img1.jpg"
 import img2 from "../assets/images/img2.jpg"
 import img3 from "../assets/images/img3.jpg"
-import {data} from "../App";
-
-
-function Home() {
-  const product=useContext(data);
-  //  return (
-  //   <>
-  //     <nav
-  //       className="navbar navbar-expand-lg navbar-dark bg-dark"
-  //       style={{ height: "40px" }}
-  //     >
-  //       <div className="container" style={{ maxWidth: "1300px" }}>
-  //         <ul className="navbar-nav justify-end">
-  //           <li className="nav-item ">
-  //             <Link className="nav-link "  href="tel:+0123456789">
-  //               <i class="fa fa-phone" style={{ fontSize: "18px" }}></i> +0123
-  //               456 789
-  //             </Link>
-  //           </li>
-  //           <li className="nav-item ">
-  //             <Link className="nav-link "  href="mailto:Shoesstore@g.com">
-  //               <i class="fa fa-envelope" style={{ fontSize: "18px" }}></i>{" "}
-  //               Shoesstore@gmail.com
-  //             </Link>
-  //           </li>
-  //         </ul>
-  //       </div>
-  //     </nav>
-
-  //     <nav
-  //       className="navbar navbar-expand-lg navbar-light "
-  //       style={{ background: "white" }}
-  //     >
-  //       <div className="container" style={{ maxWidth: "1300px" }}>
-  //         <a className="navbar-brand" href="#">
-  //           <img src={logo3} width="75" height="65px" />
-  //         </a>
-
-  //         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-  //           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-  //             <li className="nav-item">
-  //               <Link
-  //                 to="/About"
-  //                 className="nav-link active"
-  //                 aria-current="page"
-  //                 href="#"
-  //               >
-  //                 Home
-  //               </Link>
-  //             </li>
-  //             <li className="nav-item">
-  //               <Link
-  //                 to="/Product"
-  //                 className="nav-link active"
-  //                 aria-current="page"
-  //                 href="#"
-  //               >
-  //                 ProductList
-  //               </Link>
-  //             </li>
-  //             {isEmailAdmin && token &&(
-  //             <li className="nav-item dropdown">
-  //               <a
-  //                 className="nav-link dropdown-toggle"
-  //                 href="#"
-  //                 id="navbarDropdown"
-  //                 role="button"
-  //                 data-bs-toggle="dropdown"
-  //                 aria-expanded="false"
-  //               >
-  //                 Admin
-  //               </a>
-  //               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-  //                 <li>
-  //                   <Link to="/Admin" className="dropdown-item">
-  //                     Product List
-  //                   </Link>
-  //                 </li>
-  //                 <li>
-  //                   <Link to="/Orders" className="dropdown-item">
-  //                     Order List
-  //                   </Link>
-  //                 </li>
-  //                 {/* Add more dropdown items here if needed */}
-  //               </ul>
-  //             </li>
-  //             )}
-  //           </ul>
-  //           <ul className="navbar-nav flex-d">
-  //             <li className="nav-item ">
-  //               <Link to="/Cart" className="nav-link " href="#">
-  //                 <i
-  //                   class="fa fa-cart-shopping"
-  //                   style={{ fontSize: "23px" }}
-  //                 ></i>
-  //                 <sup class="super">{props.count}</sup>
-  //               </Link>
-  //             </li>
-
-  //             {token && (
-  //               <li className="nav-item">
-  //                 <Link to="/Login" className="nav-link" onClick={handleLogout}>
-  //                   Logout
-  //                 </Link>
-  //               </li>
-  //             )}
-  //             {!token && (
-  //               <>
-  //                 <li className="nav-item">
-  //                   <Link
-  //                     to="/Registrion"
-  //                     className="nav-link"
-  //                     aria-current="page"
-  //                   >
-  //                     Signup
-  //                   </Link>
-  //                 </li>
-  //                 <li className="nav-item">
-  //                   <Link
-  //                     to="/Login"
-  //                     className="nav-link"
-  //                     onClick={handleLogin}
-  //                   >
-  //                     Login
-  //                   </Link>
-  //                 </li>
-  //               </>
-  //             )}
-  //           </ul>
-  //         </div>
-  //       </div>
-  //     </nav>
-  //     <hr></hr>
-  //   </>
-  // );
-
-
+function Home({singlepro}) {
+  const [product, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  useEffect(() => {
+    // Fetch data from the API
+    axios.get("https://localhost:7015/api/Product/GetLastFive")
+      .then((response) => {
+        // Handle the successful response
+        setProducts(response.data);
+        setLoading(false); // Set loading to false when data is received
+      })
+      .catch((error) => {
+        // Handle errors
+        console.error('Error fetching data:', error);
+        setLoading(false); // Set loading to false even in case of errors
+      });
+  }, []);
+  const pdetail = (productItem) => {
+    navigate("/SingleProduct");
+    singlepro(productItem);
+  };
 return (
 <div>
        
@@ -160,8 +38,9 @@ return (
             <p>Trending of the week</p>
             <h3 className="mb-4">Casual Shoes for Men</h3>
             <div className="ban-buttons">
-              <a href="shop-single.html" className="btn">Shop Now</a>
-              <a href="single.html" className="btn active">Read More</a>
+            <Link to="/Product" className="btn">Shop Now</Link>
+            <Link to="/About" className="btn active">Read More</Link>
+             
             </div>
           </div>
           {/*// banner-inner */}
@@ -215,6 +94,9 @@ return (
         <section className="about py-5">
           <div className="container pb-lg-3">
             <h3 className="tittle text-center">New Arrivals</h3>
+            {loading ? (
+        <p>Loading...</p>
+      ) : (
             <div className="row">
             {product.map((productItem) => {
               return(
@@ -223,13 +105,17 @@ return (
                   <div className="men-thumb-item">
                   <img src={`https://localhost:7015/images/${
                         productItem?.images[0]?.url
-                       }`} className="img-fluid" alt="" />
+                       }`} className="img-fluid" alt="" style={{height:'396px'}}/>
                     <span className="product-new-top">New</span>
                   </div>
                   <div className="item-info-product">
-                    <h4>
-                      <Link to="/SingleProduct">{productItem.product.name}  </Link>
-                    </h4>
+                  
+                      {/*<Link to="/SingleProduct">{productItem.product.name}  </Link>*/}
+                      {/* <p onClick={()=>{
+                        navigate("/SingleProduct", { state: { productItem } })
+                      }}>{productItem.product.name} </p> */}
+                      <h5 onClick={() => pdetail(productItem)}>{productItem.product.name} </h5>
+                    
                     <div className="product_price">
                       <div className="grid-price">
                         <span className="money">${productItem.product.price} </span>
@@ -247,208 +133,10 @@ return (
               </div>
               )
             })};
-              {/* <div className="col-md-4 product-men">
-                <div className="product-shoe-info shoe text-center">
-                  <div className="men-thumb-item">
-                    <img src={s2}  className="img-fluid" alt="" />
-                    <span className="product-new-top">New</span>
-                  </div>
-                  <div className="item-info-product">
-                    <h4>
-                      <a href="shop-single.html">Chikku Loafers </a>
-                    </h4>
-                    <div className="product_price">
-                      <div className="grid-price">
-                        <span className="money">$475.00</span>
-                      </div>
-                    </div>
-                    <ul className="stars">
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-o" aria-hidden="true" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 product-men">
-                <div className="product-shoe-info shoe text-center">
-                  <div className="men-thumb-item">
-                    <img src={s3}  className="img-fluid" alt="" />
-                    <span className="product-new-top">New</span>
-                  </div>
-                  <div className="item-info-product">
-                    <h4>
-                      <a href="shop-single.html">(SRV) Sneakers </a>
-                    </h4>
-                    <div className="product_price">
-                      <div className="grid-price">
-                        <span className="money">$575.00</span>
-                      </div>
-                    </div>
-                    <ul className="stars">
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-o" aria-hidden="true" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 product-men my-lg-4">
-                <div className="product-shoe-info shoe text-center">
-                  <div className="men-thumb-item">
-                    <img src={s4}  className="img-fluid" alt="" />
-                    <span className="product-new-top">New</span>
-                  </div>
-                  <div className="item-info-product">
-                    <h4>
-                      <a href="shop-single.html">Shuberry Heels</a>
-                    </h4>
-                    <div className="product_price">
-                      <div className="grid-price">
-                        <span className="money">$575.00</span>
-                      </div>
-                    </div>
-                    <ul className="stars">
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-o" aria-hidden="true" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 product-men my-lg-4">
-                <div className="product-shoe-info shoe text-center">
-                  <div className="men-thumb-item">
-                    <img src={s5}  className="img-fluid" alt="" />
-                    <span className="product-new-top">New</span>
-                  </div>
-                  <div className="item-info-product">
-                    <h4>
-                      <a href="shop-single.html">Red Bellies </a>
-                    </h4>
-                    <div className="product_price">
-                      <div className="grid-price">
-                        <span className="money">$575.00</span>
-                      </div>
-                    </div>
-                    <ul className="stars">
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-o" aria-hidden="true" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 product-men my-lg-4">
-                <div className="product-shoe-info shoe text-center">
-                  <div className="men-thumb-item">
-                    <img src={s6}  className="img-fluid" alt="" />
-                    <span className="product-new-top">New</span>
-                  </div>
-                  <div className="item-info-product">
-                    <h4>
-                      <a href="shop-single.html">Catwalk Flats </a>
-                    </h4>
-                    <div className="product_price">
-                      <div className="grid-price">
-                        <span className="money">$575.00</span>
-                      </div>
-                    </div>
-                    <ul className="stars">
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-o" aria-hidden="true" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 product-men">
-                <div className="product-shoe-info shoe text-center">
-                  <div className="men-thumb-item">
-                    <img src={s7}  className="img-fluid" alt="" />
-                    <span className="product-new-top">New</span>
-                  </div>
-                  <div className="item-info-product">
-                    <h4>
-                      <a href="shop-single.html">Running Shoes </a>
-                    </h4>
-                    <div className="product_price">
-                      <div className="grid-price">
-                        <span className="money">$675.00</span>
-                      </div>
-                    </div>
-                    <ul className="stars">
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-o" aria-hidden="true" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 product-men">
-                <div className="product-shoe-info shoe text-center">
-                  <div className="men-thumb-item">
-                    <img src={s8}  className="img-fluid" alt="" />
-                    <span className="product-new-top">New</span>
-                  </div>
-                  <div className="item-info-product">
-                    <h4>
-                      <a href="shop-single.html">Sukun Casuals </a>
-                    </h4>
-                    <div className="product_price">
-                      <div className="grid-price ">
-                        <span className="money ">$775.00</span>
-                      </div>
-                    </div>
-                    <ul className="stars">
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-o" aria-hidden="true" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4 product-men">
-                <div className="product-shoe-info shoe text-center">
-                  <div className="men-thumb-item">
-                    <img src={s9}  className="img-fluid" alt="" />
-                    <span className="product-new-top">New</span>
-                  </div>
-                  <div className="item-info-product">
-                    <h4>
-                      <a href="shop-single.html">Bank Sneakers</a>
-                    </h4>
-                    <div className="product_price">
-                      <div className="grid-price">
-                        <span className="money">$875.00</span>
-                      </div>
-                    </div>
-                    <ul className="stars">
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-half-o" aria-hidden="true" /></a></li>
-                      <li><a href="#"><span className="fa fa-star-o" aria-hidden="true" /></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div> */}
             </div>
+      )}
           </div>
+      
         </section>
         {/* //ab */}
         {/*/testimonials*/}
@@ -491,7 +179,7 @@ return (
               <div className="col-md-6 latest-left">
                 <div className="product-shoe-info shoe text-center">
                   <img src={img1} className="img-fluid" alt="" />
-                  <div className="shop-now"><a href="shop.html" className="btn">Shop Now</a></div>
+                  <div className="shop-now"><Link to="/Product" className="btn">Shop Now</Link></div>
                 </div>
               </div>
               <div className="col-md-6 latest-right">
@@ -500,7 +188,7 @@ return (
                     <div className="product-shoe-info shoe text-center">
                       <div className="men-thumb-item">
                         <img src={img2} className="img-fluid" alt="" />
-                        <div className="shop-now"><a href="shop.html" className="btn">Shop Now</a></div>
+                        <div className="shop-now"><Link to="/Product" className="btn">Shop Now</Link></div>
                       </div>
                     </div>
                   </div>
@@ -508,7 +196,7 @@ return (
                     <div className="product-shoe-info shoe text-center">
                       <div className="men-thumb-item">
                         <img src={img3} className="img-fluid" alt="" />
-                        <div className="shop-now"><a href="shop.html" className="btn">Shop Now</a></div>
+                        <div className="shop-now"><Link to="/Product" className="btn">Shop Now</Link></div>
                       </div>
                     </div>
                   </div>

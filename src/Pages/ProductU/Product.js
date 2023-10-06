@@ -342,8 +342,8 @@ return (
             <div className="row">
             {currentProducts.map((productItem) => {
               return (
-              <div className="col-md-4 product-men">
-                <div className="product-shoe-info shoe text-center">
+              <div className="col-md-4 product-men" >
+                <div className="product-shoe-info shoe text-center"style={{height: "435px",marginBottom:"30px"}}>
                   <div className="men-thumb-item">
                     <img src={`https://localhost:7015/images/${
                         productItem?.images[0]?.url

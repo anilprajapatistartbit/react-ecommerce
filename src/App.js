@@ -21,6 +21,8 @@ import Orders from "./Pages/Administrator/Order/Orders";
 import Success from "./Componenets/Success";
 import Address from "./Componenets/Address";
 import Header from "./Componenets/Header";
+import MyOrder from "./Pages/Myorders/MyOrder";
+import OrderDetails from "./Pages/Myorders/OrderDetails";
 const data = createContext();
 function App() {
  
@@ -67,7 +69,7 @@ function App() {
        <Header count={cart.length} product={product} /> 
 
         <Routes>
-        <Route path="/home"  element={<Home/>}/>
+        <Route path="/home"  element={<Home  singlepro={singlepro}/>}/>
           <Route path="/About" element={<About />} />
 
           <Route
@@ -100,7 +102,9 @@ function App() {
           <Route path="/AddProduct" element={<AddProduct />} />
           <Route path="/EditProduct/:pid" element={<EditProduct />} />
           <Route path="/Orders" element={<Orders />} />
+          <Route path="/MyOrder" element={<MyOrder />} />
           <Route path="/Success" element={<Success />} />
+          <Route path="/OrderDetails/:orderId" element={<OrderDetails/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

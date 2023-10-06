@@ -1,0 +1,369 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\1.jpg",
+      "PackagePath": "staticwebassets\\images\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\1.png",
+      "PackagePath": "staticwebassets\\images\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\2.jpg",
+      "PackagePath": "staticwebassets\\images\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\2.png",
+      "PackagePath": "staticwebassets\\images\\2.png"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\3.png",
+      "PackagePath": "staticwebassets\\images\\3.png"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\4.png",
+      "PackagePath": "staticwebassets\\images\\4.png"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\5.png",
+      "PackagePath": "staticwebassets\\images\\5.png"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\6.png",
+      "PackagePath": "staticwebassets\\images\\6.png"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\7.png",
+      "PackagePath": "staticwebassets\\images\\7.png"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App.html",
+      "PackagePath": "staticwebassets\\images\\React App.html"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\all.min.css",
+      "PackagePath": "staticwebassets\\images\\React App_files\\all.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\banner1.a819001643a7d428c5b9.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\banner1.a819001643a7d428c5b9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\banner2.6b5fabf4bd9a47d100f1.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\banner2.6b5fabf4bd9a47d100f1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\banner3.80f0b40cedef1aa831ed.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\banner3.80f0b40cedef1aa831ed.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\bootstrap.bundle.min.js.download",
+      "PackagePath": "staticwebassets\\images\\React App_files\\bootstrap.bundle.min.js.download"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\images\\React App_files\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\bundle.js.download",
+      "PackagePath": "staticwebassets\\images\\React App_files\\bundle.js.download"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\logo3.1ae8271653f5b1704b86.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\logo3.1ae8271653f5b1704b86.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\one.d728992d85d770c030b5.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\one.d728992d85d770c030b5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\s1.3de693d1608dcbeafa92.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\s1.3de693d1608dcbeafa92.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\s2.59b82081385fd30228a8.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\s2.59b82081385fd30228a8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\s3.6f5b4c1310a080e917b4.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\s3.6f5b4c1310a080e917b4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\saved_resource.html",
+      "PackagePath": "staticwebassets\\images\\React App_files\\saved_resource.html"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\three.1977b84723c999c9bf9a.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\three.1977b84723c999c9bf9a.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\React App_files\\two.a833d1187b1432407fee.jpg",
+      "PackagePath": "staticwebassets\\images\\React App_files\\two.a833d1187b1432407fee.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\banner1.jpg",
+      "PackagePath": "staticwebassets\\images\\banner1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\banner2.jpg",
+      "PackagePath": "staticwebassets\\images\\banner2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\banner3.jpg",
+      "PackagePath": "staticwebassets\\images\\banner3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\g1.jpg",
+      "PackagePath": "staticwebassets\\images\\g1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\g2.jpg",
+      "PackagePath": "staticwebassets\\images\\g2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\g3.jpg",
+      "PackagePath": "staticwebassets\\images\\g3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\g4.jpg",
+      "PackagePath": "staticwebassets\\images\\g4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\g5.jpg",
+      "PackagePath": "staticwebassets\\images\\g5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\g6.jpg",
+      "PackagePath": "staticwebassets\\images\\g6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\g7.jpg",
+      "PackagePath": "staticwebassets\\images\\g7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\img.jpg",
+      "PackagePath": "staticwebassets\\images\\img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\k1.jpg",
+      "PackagePath": "staticwebassets\\images\\k1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\k2.jpg",
+      "PackagePath": "staticwebassets\\images\\k2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\k3.jpg",
+      "PackagePath": "staticwebassets\\images\\k3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\k32.jpg",
+      "PackagePath": "staticwebassets\\images\\k32.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\logo1.jpg",
+      "PackagePath": "staticwebassets\\images\\logo1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\logo2.jpg",
+      "PackagePath": "staticwebassets\\images\\logo2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\logo3.jpg",
+      "PackagePath": "staticwebassets\\images\\logo3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\n1.jpg",
+      "PackagePath": "staticwebassets\\images\\n1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\n11.jpg",
+      "PackagePath": "staticwebassets\\images\\n11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\n111.jpg",
+      "PackagePath": "staticwebassets\\images\\n111.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\n1111.jpg",
+      "PackagePath": "staticwebassets\\images\\n1111.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\one.jpg",
+      "PackagePath": "staticwebassets\\images\\one.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s1.jpg",
+      "PackagePath": "staticwebassets\\images\\s1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s11.jpg",
+      "PackagePath": "staticwebassets\\images\\s11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s111.jpg",
+      "PackagePath": "staticwebassets\\images\\s111.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s1111.jpg",
+      "PackagePath": "staticwebassets\\images\\s1111.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s2.jpg",
+      "PackagePath": "staticwebassets\\images\\s2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s22.jpg",
+      "PackagePath": "staticwebassets\\images\\s22.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s222.jpg",
+      "PackagePath": "staticwebassets\\images\\s222.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s2222.jpg",
+      "PackagePath": "staticwebassets\\images\\s2222.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s3.jpg",
+      "PackagePath": "staticwebassets\\images\\s3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s33.jpg",
+      "PackagePath": "staticwebassets\\images\\s33.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s333.jpg",
+      "PackagePath": "staticwebassets\\images\\s333.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s3333.jpg",
+      "PackagePath": "staticwebassets\\images\\s3333.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s4.jpg",
+      "PackagePath": "staticwebassets\\images\\s4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s44.jpg",
+      "PackagePath": "staticwebassets\\images\\s44.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s444.jpg",
+      "PackagePath": "staticwebassets\\images\\s444.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s4444.jpg",
+      "PackagePath": "staticwebassets\\images\\s4444.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s5.jpg",
+      "PackagePath": "staticwebassets\\images\\s5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s55.jpg",
+      "PackagePath": "staticwebassets\\images\\s55.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s555.jpg",
+      "PackagePath": "staticwebassets\\images\\s555.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s5555.jpg",
+      "PackagePath": "staticwebassets\\images\\s5555.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s6.jpg",
+      "PackagePath": "staticwebassets\\images\\s6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s66.jpg",
+      "PackagePath": "staticwebassets\\images\\s66.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s666.jpg",
+      "PackagePath": "staticwebassets\\images\\s666.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s6666.jpg",
+      "PackagePath": "staticwebassets\\images\\s6666.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s7.jpg",
+      "PackagePath": "staticwebassets\\images\\s7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s77.jpg",
+      "PackagePath": "staticwebassets\\images\\s77.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s777.jpg",
+      "PackagePath": "staticwebassets\\images\\s777.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s7777.jpg",
+      "PackagePath": "staticwebassets\\images\\s7777.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s81.jpg",
+      "PackagePath": "staticwebassets\\images\\s81.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s82.jpg",
+      "PackagePath": "staticwebassets\\images\\s82.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s83.jpg",
+      "PackagePath": "staticwebassets\\images\\s83.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s84.jpg",
+      "PackagePath": "staticwebassets\\images\\s84.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s91.jpg",
+      "PackagePath": "staticwebassets\\images\\s91.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s92.jpg",
+      "PackagePath": "staticwebassets\\images\\s92.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s93.jpg",
+      "PackagePath": "staticwebassets\\images\\s93.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\s94.jpg",
+      "PackagePath": "staticwebassets\\images\\s94.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\shoes-logo-vectors.htm",
+      "PackagePath": "staticwebassets\\images\\shoes-logo-vectors.htm"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\three.jpg",
+      "PackagePath": "staticwebassets\\images\\three.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Startbit\\source\\repos\\ShoesStoreProject\\ShoesStoreProject\\wwwroot\\images\\two.jpg",
+      "PackagePath": "staticwebassets\\images\\two.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ShoesStoreProject.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ShoesStoreProject.props",
+      "PackagePath": "build\\ShoesStoreProject.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ShoesStoreProject.props",
+      "PackagePath": "buildMultiTargeting\\ShoesStoreProject.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ShoesStoreProject.props",
+      "PackagePath": "buildTransitive\\ShoesStoreProject.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
