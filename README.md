@@ -70,39 +70,61 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 1)Sign Up Page
+![signuppage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/14357ba4-bd1a-4bfd-925b-1313e1748ede)
 
 2)Login Page
+![loginpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/d310d05d-dcef-4633-8133-ffc636fc7257)
 
-
-3) Home Page
-![Homepage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/f631835f-efcd-4c7c-b041-626f6d928383)
+3)Home Page
+![homepage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/0a03da45-9fc3-4436-9917-7924d8b68bda)
 
 4)About Page
-![Productlist](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b6554cd4-60dc-4c78-92a2-8795b9faf94d)
+![aboutpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b557bb16-da26-4665-991b-c216413378b8)
 
 5)Contact Page
+![contactpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/bb6997d9-0f8f-456e-aec1-6fd384606b55)
 
 6)Product Page
-![ProductDetails](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/a072e7c2-8a5c-4542-93e5-896ac0677909)
+![productpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b37e68ef-1611-4971-8424-b2e7b6f8c93b)
 
 7) ProductDetails Page
-![Cart](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/791559e9-1166-46c1-bc1c-2d3b21fa0a33)
+![singleproduct](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b0f94bd7-6855-4a1e-8022-07a67835a807)
 
 8)Cart 
+![cart (2)](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b3a2ffb2-c701-4783-87a1-d156992919eb)
 
 9)Billing Details Page
+![billingaddressform](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/ef2acaa1-fd0e-40c4-b63e-1f6bb6964c7e)
+
 
 10)Add New Address Page
+![newaddress](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/2f223257-5c86-4f30-9683-59b76bb4f714)
 
 11)Admin Section ->
 
 Product List
+![productlist (2)](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/931988fa-434d-40f9-a8a2-e054fc36134a)
 
 Order List
+![orderlist](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/4e4aae47-c890-4081-a2cd-8d8683f8a9f3)
 
 12)My Orders 
+![myorders](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/d9327d4d-315c-4532-90e8-938e62b3e58c)
 
 13)Print Of MyOrders Page
+![printout myorder](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/af0eedc0-83e7-4574-9d9b-af1db7b739e7)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
