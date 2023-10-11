@@ -21,6 +21,7 @@ This project is an e-commerce website for buying shoes. It provides a user-frien
 - Payment Processing: Stripe
 - Styling: CSS, Bootstrap
   
+## Screenshots
 1)Sign Up Page
 ![signuppage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/14357ba4-bd1a-4bfd-925b-1313e1748ede)
 
