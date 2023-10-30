@@ -20,7 +20,7 @@ This project is an e-commerce website for buying shoes. It provides a user-frien
 - Database: SQL
 - Payment Processing: Stripe
 - Styling: CSS, Bootstrap
-  
+ 
 ## Screenshots
 1)Sign Up Page
 ![signuppage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/14357ba4-bd1a-4bfd-925b-1313e1748ede)
@@ -29,7 +29,7 @@ This project is an e-commerce website for buying shoes. It provides a user-frien
 ![loginpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/d310d05d-dcef-4633-8133-ffc636fc7257)
 
 3)Home Page
-![homepage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/0a03da45-9fc3-4436-9917-7924d8b68bda)
+![homepage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/365dd89c-e346-4279-af44-3de5bccc8072)
 
 4)About Page
 ![aboutpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b557bb16-da26-4665-991b-c216413378b8)
@@ -38,13 +38,13 @@ This project is an e-commerce website for buying shoes. It provides a user-frien
 ![contactpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/bb6997d9-0f8f-456e-aec1-6fd384606b55)
 
 6)Product Page
-![productpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b37e68ef-1611-4971-8424-b2e7b6f8c93b)
+![productpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/7dfeade5-cce4-42f2-b30f-de03f1b4afa1)
 
 7) ProductDetails Page
 ![singleproduct](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b0f94bd7-6855-4a1e-8022-07a67835a807)
 
 8)Cart 
-![cart (2)](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b3a2ffb2-c701-4783-87a1-d156992919eb)
+ ![cart (2)](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/057d2478-4de7-47c4-9a75-fbde4027941f)
 
 9)Billing Details Page
 ![billingaddressform](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/ef2acaa1-fd0e-40c4-b63e-1f6bb6964c7e)
@@ -56,16 +56,16 @@ This project is an e-commerce website for buying shoes. It provides a user-frien
 11)Admin Section ->
 
 Product List
-![productlist (2)](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/931988fa-434d-40f9-a8a2-e054fc36134a)
+![productlist (2)](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/48f15f53-b011-49f9-a4ae-79772697f7fc)
 
 Order List
-![orderlist](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/4e4aae47-c890-4081-a2cd-8d8683f8a9f3)
+![orderslist](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/08534a94-6ada-4e07-927c-2206cd44daa3)
 
 12)My Orders 
-![myorders](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/d9327d4d-315c-4532-90e8-938e62b3e58c)
+![myorder](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/14b5923a-8848-4946-a287-1e6d749762fb)
 
 13)Print Of MyOrders Page
-![printout myorder](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/af0eedc0-83e7-4574-9d9b-af1db7b739e7)
+![print](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/426ecf6f-ac38-4cef-818d-5b495893695c)
 
 
 
