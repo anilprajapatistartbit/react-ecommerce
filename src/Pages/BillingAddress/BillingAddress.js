@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate,Link } from "react-router-dom";
-import TextInput from "../common/TextInput";
-import "../assets/css/Checkout.css";
+import TextInput from "../../common/TextInput";
+import "../../assets/css/Checkout.css";
 import { loadStripe } from "@stripe/stripe-js";
 function BillingAddress() {
+  const [loading, setLoading] = useState(true);
   const id = localStorage.getItem("id");
   const [formData, setFormData] = useState({
     cid: 0,
@@ -29,6 +32,7 @@ function BillingAddress() {
     axios.get(`https://localhost:7015/api/Address/Getall?id=${id}`).then((res) => {
       // Storing users detail in state array object
       setData(res.data);
+      setLoading(false);
     });
   }, []);
 
@@ -68,7 +72,7 @@ function BillingAddress() {
           "https://localhost:7015/api/BillingAddress/AddBilling",
           { ...formData }
         );
-
+           toast.success('Added Biliingdetails successfully!');
         const newCid = response.data;
         setFormData((prevData) => ({
           ...prevData,
@@ -76,7 +80,7 @@ function BillingAddress() {
         }));
         localStorage.setItem("cid", newCid.toString());
         console.log("responessss", response.data); // You can handle the response as needed
-        alert("billing sucessfully");
+       // alert("billing sucessfully");
 
         //stripe payment api ----------------------------------------------
         const cart = JSON.parse(localStorage.getItem("cart"));
@@ -97,7 +101,7 @@ function BillingAddress() {
         const paymentSessionUrl = paymentResponse.data;
 
         // Redirect the user to the payment page
-        alert("Redirecting to payment page...");
+       // alert("Redirecting to payment page...");
         window.location.href = paymentSessionUrl;
       } catch (error) {
         console.error("Error registering:", error);
@@ -175,7 +179,9 @@ function BillingAddress() {
           </div>
         </div>
         <div class="col-50">
-         
+        {loading ? (
+        <p>Loading...</p>
+      ) : (
               <div class="row">
               {data
           .map((result) => {
@@ -212,7 +218,7 @@ function BillingAddress() {
                 );
               })}
               </div>
-          
+      )}
           <button className="add-more-address" onClick={address}>
             Add More Address
           </button>

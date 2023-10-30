@@ -364,3 +364,9 @@ img {
   font-weight: 500;
   cursor: pointer;
 }
+.table thead tr  th{
+  background: #414b52;
+  color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+}

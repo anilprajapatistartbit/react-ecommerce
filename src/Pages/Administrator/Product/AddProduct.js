@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function AddProduct() {
@@ -86,7 +86,7 @@ function AddProduct() {
           "https://localhost:7015/api/Product",
           formDataToSend
         );
-        alert('Product added successfully!');
+      
         navigate("/Admin");
         toast.success('Product added successfully!');
       
@@ -116,7 +116,7 @@ function AddProduct() {
           {/**/}
           <ol className="breadcrumb">
            <li className="breadcrumb-item">
-              <a href="index.html">PRODUCT LIST</a>
+           <Link to="/Admin" >PRODUCT LIST</Link>
            </li>
             <li className="breadcrumb-item active">ADD PRODUCT</li>
           </ol>

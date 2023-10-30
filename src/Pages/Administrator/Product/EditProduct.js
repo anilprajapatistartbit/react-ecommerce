@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams ,useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useParams ,useNavigate ,Link} from 'react-router-dom';
 const EditProduct = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({
@@ -12,6 +14,10 @@ const EditProduct = () => {
     disciption:"",
    // images:[]
   });
+  // const handleImageChange = (e) => {
+  //   const files = e.target.files;
+  //   setProduct({ ...product, images: files });
+  // };
 
   const { pid } = useParams();
   useEffect(() => {
@@ -29,6 +35,8 @@ const EditProduct = () => {
       });
   }, [pid]);
 
+  const [validationErrors, setValidationErrors] = useState({}); // State for validation errors
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProduct({ ...product, [name]: value });
@@ -36,15 +44,35 @@ const EditProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-   
-
-    // Make a PUT request to update the product details using Axios and the pid
+    const isConfirmed = window.confirm("Are you sure you want to update this product?");
+    const errors = {}; // Initialize an empty errors object
+    if (!product.name) {
+      errors.name = "Name is required";
+    }
+    if (!product.category) {
+      errors.category = "Category is required";
+    }
+    if (!product.seller) {
+      errors.seller = "Seller is required";
+    }
+    if (!product.price) {
+      errors.price = "Price is required";
+    }
+    if (!product.quantity) {
+      errors.quantity = "Quantity is required";
+    }
+    if (!product.disciption) {
+      errors.disciption = "Description is required";
+    }
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+    } else {
+  if (isConfirmed) {
     axios
       .put(`https://localhost:7015/api/Product/UpdateProduct/${pid}`,product)
       .then((response) => {
         console.log('Product updated:', response.data);
-        alert("Product updated successfully")
+        toast.success('Product updated successfully!');
         navigate("/Admin");
         // Redirect or display a success message
       })
@@ -52,6 +80,10 @@ const EditProduct = () => {
         console.error('Error updating product:', error);
         // Handle the error, display an error message, or redirect to an error page
       });
+    }else{
+      navigate("/Admin");
+    }
+  }
   };
   const pdetail = () => {
     navigate("/Admin");
@@ -66,7 +98,8 @@ const EditProduct = () => {
           {/**/}
           <ol className="breadcrumb">
            <li className="breadcrumb-item">
-              <a href="index.html">PRODUCT LIST</a>
+             
+              <Link to="/Admin" >PRODUCT LIST</Link>
            </li>
             <li className="breadcrumb-item active">UPDATE PRODUCT</li>
           </ol>
@@ -87,16 +120,30 @@ const EditProduct = () => {
               onChange={handleInputChange}
               className="form-control"
             />
+             {validationErrors.name && (
+            <div className="text-danger">{validationErrors.name}</div>
+          )}
           </div>
           <div className="form-group">
-            <label>Category:</label>
-            <input
-              type="text"
-              name="category"
-              value={product.category}
-              onChange={handleInputChange}
-              className="form-control"
-            />
+          <label className="form-label" htmlFor="category">
+          Category
+        </label>
+        <select
+          id="form3Example1c"
+          className="form-select"
+          name="category"
+          value={product.category}
+          onChange={handleInputChange}
+        >
+          <option value="">--Select--</option>
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+          <option value="Kids">Kids</option>
+          {/* Add more options as needed */}
+        </select>
+        {validationErrors.category && (
+            <div className="text-danger">{validationErrors.category}</div>
+          )}
           </div>
           <div className="form-group">
             <label>Seller:</label>
@@ -107,6 +154,9 @@ const EditProduct = () => {
               onChange={handleInputChange}
               className="form-control"
             />
+             {validationErrors.seller && (
+            <div className="text-danger">{validationErrors.seller}</div>
+          )}
           </div>
           <div className="form-group">
             <label>Price:</label>
@@ -117,6 +167,9 @@ const EditProduct = () => {
               onChange={handleInputChange}
               className="form-control"
             />
+             {validationErrors.price && (
+            <div className="text-danger">{validationErrors.price}</div>
+          )}
           </div>
           <div className="form-group">
             <label>Quantity:</label>
@@ -127,6 +180,9 @@ const EditProduct = () => {
               onChange={handleInputChange}
               className="form-control"
             />
+             {validationErrors.quantity && (
+            <div className="text-danger">{validationErrors.quantity}</div>
+          )}
           </div>
           <div className="form-group">
             <label>Discription:</label>
@@ -137,7 +193,20 @@ const EditProduct = () => {
               onChange={handleInputChange}
               className="form-control"
             />
+             {validationErrors.disciption && (
+            <div className="text-danger">{validationErrors.disciption}</div>
+          )}
           </div>
+          {/* <div className="form-group">
+            <label>Images:</label>
+          <input
+           className="form-control"
+              type="file"
+              value={product.images}
+              name="images"
+              multiple // Allow multiple file selection
+            onChange={handleImageChange} // Update the function name
+            /></div> */}
           <button                
                    onClick={() => pdetail(pdetail)}
                     className="payment-address"

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate ,Link} from "react-router-dom";
-import TextInput from "../common/TextInput";
-import "../assets/css/Checkout.css";
+import TextInput from "../../common/TextInput";
+import "../../assets/css/Checkout.css";
 import { loadStripe } from "@stripe/stripe-js";
 function Address() {
   const [formData, setFormData] = useState({
@@ -16,6 +18,7 @@ function Address() {
   });
   const navigate = useNavigate();
   const [formErrors, setFormErrors] = useState({});
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -57,8 +60,9 @@ function Address() {
           "https://localhost:7015/api/Address/AddAddress",
           {...formData,UserId:user}
         );
-        alert("address sucessfully");
+        toast.success('Add new address successfully!');
         navigate("/BillingAddress")
+  
         console.log(response.data); // You can handle the response as needed
       } catch (error) {
         console.error("Error registering:", error);

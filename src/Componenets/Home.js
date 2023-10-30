@@ -8,15 +8,18 @@ import img1 from "../assets/images/img1.jpg"
 import img2 from "../assets/images/img2.jpg"
 import img3 from "../assets/images/img3.jpg"
 function Home({singlepro}) {
-  const [product, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+
   useEffect(() => {
     // Fetch data from the API
     axios.get("https://localhost:7015/api/Product/GetLastFive")
       .then((response) => {
         // Handle the successful response
         setProducts(response.data);
+        setFilteredProducts(response.data); // Initialize filteredProducts with all products
         setLoading(false); // Set loading to false when data is received
       })
       .catch((error) => {
@@ -25,10 +28,19 @@ function Home({singlepro}) {
         setLoading(false); // Set loading to false even in case of errors
       });
   }, []);
+
   const pdetail = (productItem) => {
     navigate("/SingleProduct");
     singlepro(productItem);
   };
+ 
+  const filterItem = (category) => {
+    const updateItems = products.filter((curElm) => {
+      return curElm.product.category === category;
+    });
+    setFilteredProducts(updateItems);
+  };
+
 return (
 <div>
        
@@ -97,15 +109,43 @@ return (
             {loading ? (
         <p>Loading...</p>
       ) : (
+      
+
             <div className="row">
-            {product.map((productItem) => {
+   <div className="menu-teb d-flex justify-content-center" style={{marginBottom:"30px" }}>
+        <button
+          className="payment-address"
+          onClick={() => filterItem("Men")}
+          style={{
+            margin:"5px",
+           width:"100px"
+          }}
+        >
+          Men's
+        </button>
+        <button
+          className="payment-address"
+          onClick={() => filterItem("Women")}
+         style={{margin:"5px"}}
+        >
+          Women's
+        </button>
+        <button
+          className="payment-address"
+          onClick={() => filterItem("Kids")}
+          style={{margin:"5px", width:"100px"}}
+        >
+          Kid's
+        </button>
+      </div>
+            {filteredProducts.map((productItem) => {
               return(
               <div className="col-md-4 product-men" style={{marginBottom: "30px"}}>
                 <div className="product-shoe-info shoe text-center">
                   <div className="men-thumb-item">
                   <img src={`https://localhost:7015/images/${
                         productItem?.images[0]?.url
-                       }`} className="img-fluid" alt="" style={{height:'396px'}}/>
+                       }`} className="img-fluid" alt="" style={{height:'318px'}}/>
                     <span className="product-new-top">New</span>
                   </div>
                   <div className="item-info-product">
@@ -132,7 +172,8 @@ return (
                 </div>
               </div>
               )
-            })};
+            }
+            )}
             </div>
       )}
           </div>

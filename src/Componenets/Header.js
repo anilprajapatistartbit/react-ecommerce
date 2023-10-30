@@ -52,16 +52,16 @@ return (
                   Products
                </Link></li>
                <li><Link to="/Contact">Contact</Link></li>
-               {/* {!isEmailAdmin && token &&( <li>
+               {!isEmailAdmin && token &&( <li>
                    
-                    <label htmlFor="drop-2" className="toggle">My Orders<span className="fa fa-angle-down" aria-hidden="true" /> </label>
+                    <label htmlFor="drop-2" className="toggle">MyOrders<span className="fa fa-angle-down" aria-hidden="true" /> </label>
                     <a href="#">My Orders <span className="fa fa-angle-down" aria-hidden="true" /></a>
                     <input type="checkbox" id="drop-2" />
                     <ul>
                       <li><Link to="/MyOrder">MyOrders</Link></li>   
                     </ul>
                   </li> 
-                   )} */}
+                   )} 
                  
                   {isEmailAdmin && token &&(
                   <li>

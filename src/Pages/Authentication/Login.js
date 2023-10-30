@@ -23,7 +23,10 @@ function Login() {
 
     // Email format validation
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!emailRegex.test(enteredEmail)) {
+    if (!enteredEmail) {
+      setEmailError("Email is required");
+    } 
+  else if (!emailRegex.test(enteredEmail)) {
       setEmailError("Enter a valid email address");
     } else {
       setEmailError("");
@@ -35,14 +38,17 @@ function Login() {
     setPassword(enteredPassword);
 
     // Password validation
-    if (enteredPassword.length < 6) {
+    if (!enteredPassword) {
+      setPasswordError("Password is required");
+    } 
+    else if (enteredPassword.length < 6) {
       setPasswordError("Password must be at least 6 characters long");
     } else {
       setPasswordError("");
     }
   };
 
-  const handleApi = () => {
+  const hendleSubmit = () => {
     console.log({ email, password });
     axios
       .post("https://localhost:7015/api/Registration/login", {
@@ -56,14 +62,24 @@ function Login() {
           localStorage.setItem("email", email);
           localStorage.setItem("id", result.data.id);
           localStorage.setItem("token", true);
-          toast.success("Login successfully!");
+         
           navigate("/home");
+          toast.success("Login successfully!");
         } else {
+        
           setError("Invalid email or password");
+          setTimeout(() => {
+            setError("");
+          }, 2000);
+      
         }
       })
       .catch((error) => {
+      
         setError("Invalid email or password");
+        setTimeout(() => {
+          setError("");
+        },2000);
         console.log(error);
       });
   };
@@ -212,25 +228,39 @@ function Login() {
           <div className="col-lg-6">
             <div className="login_form_inner">
               <h3>Log in to enter</h3>
-              <form className="row login_form" action="contact_process.php" method="post" id="contactForm" noValidate="novalidate">
-              {error && <div className="alert alert-danger">{error}</div>}
+              <form className="row login_form" >
+              
+              {error && (<div className="alert text-danger">{error}</div>)}
                 <div className="col-md-12 form-group">
-                  <input type="text" className={`form-control form-control${
-                      emailError ? "is-invalid" : ""
-                     }`} onChange={handleEmail} input value={email} id="form3Example3" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" />
-                  
-                  {emailError && (
+                <input
+                    type="text"
+                    id="form3Example3"
+                     input
+                   value={email}
+                     onChange={handleEmail}
+                    className={`form-control  ${
+                     emailError ? "is-invalid" : ""
+                    }`}
+                     placeholder="Email"
+                   />
+                   {emailError && (
                    <div className="invalid-feedback">{emailError}</div>
                   )}
                 </div>
                 <div className="col-md-12 form-group">
-                  <input type="password" className={`form-control form-control${
-                      passwordError ? "is-invalid" : ""
-                    }`}  onChange={handlePassword}   value={password} id="form3Example4" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" />
-                  
-                 {passwordError && (
+                <input
+                    type="password"
+                   id="form3Example4"
+                   value={password}
+                    onChange={handlePassword}
+                    className={`form-control ${
+                       passwordError ? "is-invalid" : ""
+                     }`}
+                   placeholder="Enter password"
+                  />
+                  {passwordError && (
                      <div className="invalid-feedback">{passwordError}</div>
-                   )}
+                  )}
                 </div>
                 <div className="col-md-12 form-group">
                   <div className="creat_account">
@@ -239,7 +269,7 @@ function Login() {
                   </div>
                 </div>
                 <div className="col-md-12 form-group">
-                  <button type="button"  onClick={handleApi} value="submit" className="primary-btn">Log In</button>
+                  <button type="button" onClick={hendleSubmit} value="submit" className="primary-btn">Log In</button>
                 </div>
               </form>
             </div>
@@ -247,7 +277,7 @@ function Login() {
         </div>
       </div>
     </section>
-    <ToastContainer position="top-right" autoClose={3000} />
+   
     </>
   );
 

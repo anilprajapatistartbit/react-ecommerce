@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate ,Link} from "react-router-dom";
-import Checkout from "../../Componenets/BillingAddress";
+import Checkout from "../BillingAddress/BillingAddress";
 import empty from "../../assets/images/empty.png";
 import cart1 from "../../assets/images/cart.jpg";
 import { loadStripe } from "@stripe/stripe-js";
@@ -251,8 +251,8 @@ function Cart({ cart }) {
         <div className="container">
           <div className="cart_inner">
             <div className="table-responsive">
-              <table className="table" style={{background:'#f9f9f9'}}>
-              <>  <thead>
+              <table className="table">
+              <>  <thead style={{background:"#414b52",color:"white"}}>
                     <tr>
                       <th scope="col">Product</th>
                       <th scope="col">Name</th>
@@ -292,7 +292,7 @@ function Cart({ cart }) {
                           <button onClick={() => decreaseQuantity(cartIndex)}>
                             -
                           </button>
-                          <span> {cartItem.product.quantity}</span>
+                          <span> {cartItem.product.quantity} </span>
                           <button onClick={() => increaseQuantity(cartIndex)}>
                             +
                           </button>
@@ -347,7 +347,6 @@ function Cart({ cart }) {
                           <input
                             type="radio"
                             name="shipping"
-                            className="custom-control-input"
                             defaultChecked
                           /> Free Shipping                           
                           </div>
@@ -357,7 +356,7 @@ function Cart({ cart }) {
                         <td >
                           <div style={{ float: 'right' }}>
                            
-                            <Link  to="/Product"className="gray_btn">Continue Shopping</Link>                       
+                            <button className="gray_btn" onClick={pdetail}>Continue Shopping</button>                       
                           </div>
                         </td>
                         <td>                         

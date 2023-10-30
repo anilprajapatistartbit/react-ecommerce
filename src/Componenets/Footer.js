@@ -4,6 +4,8 @@ import "../assets/css/font-awesome.css";
 import { Link } from "react-router-dom";
 import TextInput from "../common/TextInput";
 import { useState, useEffect } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 function Footer() {
  
@@ -28,7 +30,7 @@ function Footer() {
       axios
         .post('https://localhost:7015/api/Newsletter/AddNewsletter', formData)
         .then((response) => {
-          alert('Newsletter subscription successful');
+          toast.success('Newsletter subscription successful!');
           setFormData({ ...formData, Email: '' });
         })
         .catch((error) => {
@@ -137,10 +139,10 @@ function Footer() {
                       <Link to="/About">About Us</Link>
                     </li>
                     <li className="mt-3">
-                      <a href="#">Gallery</a>
+                    <Link to="/Product">Product</Link>
                     </li>
                     <li className="mt-3">
-                      <a href="#">Services</a>
+                    <Link to="/About">Services</Link>
                     </li>
                     <li className="mt-3">
                       <Link to="/Contact">Contact Us</Link>
@@ -158,16 +160,16 @@ function Footer() {
                         <Link to="/About">About Us</Link>
                       </li>
                       <li className="mt-3">
-                        <a href="#">Delivery &amp; Returns</a>
+                      <Link to="/Home">Delivery &amp; Returns</Link>
                       </li>
                       <li className="mt-3">
-                        <a href="#">Waranty</a>
+                      <Link to="/Home">Waranty</Link>
                       </li>
                       <li className="mt-3">
-                        <a href="#">Terms &amp; Condition</a>
+                      <Link to="/About">Terms &amp; Condition</Link>
                       </li>
                       <li className="mt-3">
-                        <a href="#">Privacy Plolicy</a>
+                      <Link to="/About">Privacy Plolicy</Link>
                       </li>
                     </ul>
                   </div>

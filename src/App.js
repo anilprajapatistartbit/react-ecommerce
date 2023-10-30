@@ -6,12 +6,11 @@ import About from "./Componenets/About";
 import Product from "./Pages/ProductU/Product";
 import SingleProduct from "./Pages/ProductU/SingleProduct";
 import Contact from "./Componenets/Contact";
-
 import Cart from "./Pages/Cart/Cart";
 import React, { createContext, useEffect, useState } from "react";
 import Login from "./Pages/Authentication/Login";
 import Footer from "./Componenets/Footer";
-import BillingAddress from "./Componenets/BillingAddress";
+import BillingAddress from "./Pages/BillingAddress/BillingAddress";
 import Registrion from "./Pages/Authentication/Registration";
 import Admin from "./Pages/Administrator/Product/Admin";
 import axios from "axios";
@@ -19,10 +18,13 @@ import AddProduct from "./Pages/Administrator/Product/AddProduct";
 import EditProduct from "./Pages/Administrator/Product/EditProduct";
 import Orders from "./Pages/Administrator/Order/Orders";
 import Success from "./Componenets/Success";
-import Address from "./Componenets/Address";
+import Address from "./Pages/BillingAddress/Address";
 import Header from "./Componenets/Header";
 import MyOrder from "./Pages/Myorders/MyOrder";
 import OrderDetails from "./Pages/Myorders/OrderDetails";
+import Cancel from "./Componenets/Cancel";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const data = createContext();
 function App() {
  
@@ -64,6 +66,7 @@ function App() {
     setpro([{ ...data }]);
   };
   return (
+    <> <ToastContainer position="top-right" autoClose={3000} />
     <data.Provider value={product}>
       <BrowserRouter>
        <Header count={cart.length} product={product} /> 
@@ -104,11 +107,12 @@ function App() {
           <Route path="/Orders" element={<Orders />} />
           <Route path="/MyOrder" element={<MyOrder />} />
           <Route path="/Success" element={<Success />} />
+          <Route path="/Cancel" element={<Cancel />} />
           <Route path="/OrderDetails/:orderId" element={<OrderDetails/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
-    </data.Provider>
+    </data.Provider></>
   );
 }
 

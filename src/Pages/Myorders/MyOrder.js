@@ -51,7 +51,7 @@ function MyOrder() {
         <div className="container">
           <div className="cart_inner">
             <div className="table-responsive">
-              <table className="table" style={{background:'#f9f9f9'}}>
+              <table className="table table-hover" >
               <>  <thead>
                     <tr>
                     <th scope="col">OrderId</th>
@@ -100,7 +100,7 @@ function MyOrder() {
                         </td>  
                         <td>
                           <div className="media-body">
-                          <button onClick={() => handleViewOrder(result.id)}>View</button>
+                          <button className="payment-address" onClick={() => handleViewOrder(result.id)}>View</button>
                           </div>
                         </td>        
                       </tr>

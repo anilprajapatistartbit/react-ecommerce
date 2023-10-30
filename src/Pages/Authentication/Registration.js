@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import login from "../../assets/images/login.jpg";
 import "../../assets/css/bootstrap.css"
 import "../../App.css";
@@ -59,7 +61,8 @@ function Registrion() {
           "https://localhost:7015/api/Registration/registration",
           formData
         );
-        alert("submit sucessfully");
+       
+        toast.success('User register successfully!');
         navigate("/login");
         console.log(response.data); // You can handle the response as needed
       } catch (error) {

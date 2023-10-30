@@ -25,6 +25,9 @@ function OrderDetails() {
         console.error("Error fetching data:", error);
       });
   }, []);
+  const handlePrint = () => {
+    window.print();
+  };
   return (
     <>
       <div>
@@ -45,45 +48,51 @@ function OrderDetails() {
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <div className="row login_form_inner">
-                <h3 className="logo-2 mb-lg-4 mb-3">
-                <Link to="/Home">
+                <div className="row login_form_inner" style={{marginBottom:"150px"}}>
+                <h1 className="logo-2 mb-lg-4 mb-3">
+                <Link to="/Home" style={{float:"left",marginLeft:"60px"}}>
                   <span className="fa fa-bold" aria-hidden="true" />
                   ootie
                 </Link>
-              </h3>
+              </h1>
           { data?.order &&  <>
-                  <div className="col-md-6">
+                  <div className="col-md-5" style={{textAlign:"left",marginLeft:"60px",fontSize:"20px"}}>
                  
-                    <p>OrderDate:-  {data?.order?.orderDate}</p>
+                    <p>OrderDate :-  {data?.order?.orderDate}</p>
                     <p>TransactionID:- {data?.order?.transactionID}</p>
                     <p>Total:- {data?.order?.total}</p>
                     <p>Currency:- {data?.order?.currency}</p>
                     <p>billingId:- {data?.order?.billingId}</p>
                   </div>
-                  <div className="col-md-6">
-                    <p>{data?.order?.billingAddress.fullname}</p>
-                    <p>{data?.order?.billingAddress.email}</p>
-                    <p>{data?.order?.billingAddress.address}</p>
-                    <p>{data?.order?.billingAddress.city}</p>
-                    <p>{data?.order?.billingAddress.state}</p>
-                    <p>{data?.order?.billingAddress.zip}</p>
+                  <div className="col-md-4" style={{textAlign:"left",marginLeft:"150px",fontSize:"20px"}}>
+                    <p>FullName :- {data?.order?.billingAddress.fullname}</p>
+                    <p>Email :- {data?.order?.billingAddress.email}</p>
+                    <p>Address :- {data?.order?.billingAddress.address}</p>
+                    <p>City :- {data?.order?.billingAddress.city}</p>
+                    <p>State :- {data?.order?.billingAddress.state}</p>
+                    <p>Zipcode :- {data?.order?.billingAddress.zip}</p>
                     </div>
                     </>}
 
-                {/* {data?.orderItems?.map((item,key)=>(
+                {data?.orderItems?.map((item,key)=>(
                 <div>
-                  <table  style={{background:'#f9f9f9'}}>
+                  <table  style={{background:'#f9f9f9',marginLeft:"80px",width:"80%"}} className="table table-hover" >
+                  <thead>
+                    <tr>
+                     <th scope="col">Name</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Seller</th>
+                    </tr>
+                  </thead>
                     <tbody>
                       <tr>
                         <td>
-                        {item.name}
+                        {item.product.name}
                         </td>
                         <td>
-                        {item.category}
-                        </td>
-                        <td>
-                        {item.seller}
+                        {item.product.category}
                         </td>
                         <td>
                         {item.price}
@@ -92,14 +101,15 @@ function OrderDetails() {
                         {item.quantity}
                         </td>
                         <td>
-                        {item.disciption}
+                        {item.product.seller}
                         </td>
                       </tr>
                     </tbody>
                   </table>
-                   
+                   <button className="payment-address" style={{marginTop:"30px",width:"90px"}}><Link to="/MyOrder" style={{color:"white"}}>Back</Link></button>
+                   <button className="payment-address" style={{marginTop:"30px",marginLeft:"10px",width:"90px"}} onClick={handlePrint}>Print</button>
                   </div>
-                  ))} */}
+                  ))}
 
                 </div>
               </div>

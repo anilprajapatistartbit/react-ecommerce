@@ -385,7 +385,7 @@ return (
             </div>
             <div className="pagination" style={{float:"right"}}>
            <button
-            style={{background:'#414b52',color:"white"}}
+            style={{background:'#414b52',color:"white",height:"35px"}}
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
           >
@@ -400,7 +400,7 @@ return (
              </span>
            ))}
          <button
-         style={{background:'#414b52',color:"white"}}
+         style={{background:'#414b52',color:"white",height:"35px"}}
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={
               currentPage ===Math.ceil(filteredProducts.length / productsPerPage)
