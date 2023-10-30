@@ -1,85 +1,84 @@
-# Getting Started with Create React App
+# E-Commerce Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This project is an e-commerce website for buying shoes. It provides a user-friendly interface for customers to browse and purchase a wide range of shoes.
 
-In the project directory, you can run:
+### Features
 
-### `npm start`
+- Browse and search for various shoe products.
+- View detailed product information, including images, prices, and descriptions.
+- Add products to the shopping cart.
+- Checkout and place orders securely.
+- User registration and authentication.
+- User order and order history.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Frontend: React
+- Backend: ASP.NET CORE
+- Database: SQL
+- Payment Processing: Stripe
+- Styling: CSS, Bootstrap
+ 
+## Screenshots
+1)Sign Up Page
+![signuppage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/14357ba4-bd1a-4bfd-925b-1313e1748ede)
 
-### `npm test`
+2)Login Page
+![loginpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/d310d05d-dcef-4633-8133-ffc636fc7257)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3)Home Page
+![homepage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/365dd89c-e346-4279-af44-3de5bccc8072)
 
-### `npm run build`
+4)About Page
+![aboutpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b557bb16-da26-4665-991b-c216413378b8)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5)Contact Page
+![contactpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/bb6997d9-0f8f-456e-aec1-6fd384606b55)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6)Product Page
+![productpage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/7dfeade5-cce4-42f2-b30f-de03f1b4afa1)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+7) ProductDetails Page
+![singleproduct](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b0f94bd7-6855-4a1e-8022-07a67835a807)
 
-### `npm run eject`
+8)Cart 
+ ![cart (2)](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/057d2478-4de7-47c4-9a75-fbde4027941f)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+9)Billing Details Page
+![billingaddressform](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/ef2acaa1-fd0e-40c4-b63e-1f6bb6964c7e)
 
 
-1) Home Page
-![Homepage](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/f631835f-efcd-4c7c-b041-626f6d928383)
+10)Add New Address Page
+![newaddress](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/2f223257-5c86-4f30-9683-59b76bb4f714)
 
-2)Product List Page
-![Productlist](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/b6554cd4-60dc-4c78-92a2-8795b9faf94d)
+11)Admin Section ->
 
-3)Product Details Page
-![ProductDetails](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/a072e7c2-8a5c-4542-93e5-896ac0677909)
+Product List
+![productlist (2)](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/48f15f53-b011-49f9-a4ae-79772697f7fc)
 
-4)Product Cart
-![Cart](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/791559e9-1166-46c1-bc1c-2d3b21fa0a33)
+Order List
+![orderslist](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/08534a94-6ada-4e07-927c-2206cd44daa3)
+
+12)My Orders 
+![myorder](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/14b5923a-8848-4946-a287-1e6d749762fb)
+
+13)Print Of MyOrders Page
+![print](https://github.com/anilprajapatistartbit/react-ecommerce/assets/133847106/426ecf6f-ac38-4cef-818d-5b495893695c)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
