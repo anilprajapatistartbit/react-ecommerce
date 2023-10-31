@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Loader from "react-spinners/ClipLoader";
 import axios from "axios";
 import DataTable from "react-data-table-component";
-
+import Sidebar from "../../../common/Sidebar";
 function Admin() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
@@ -136,6 +136,7 @@ function Admin() {
         </ol>
         {/**/}
       </div>
+      
       {/* {loading ? ( // Conditional rendering based on the loading state
         <div className="text-center">
           <Loader color="#007bff" loading={loading} size={50} />{" "}
@@ -191,7 +192,12 @@ function Admin() {
           </div>
         </div>
       )} */}
-      <div className="MainDiv" style={{ padding: "60px 10%" }}>
+       <div class="row">  
+
+<Sidebar/>
+
+<div class="col-md-9 col-lg-10">
+      <div className="MainDiv" style={{ padding: "40px 4%" }}>
         {loading ? (
           <div className="text-center">
             <Loader color="#007bff" loading={loading} size={50} />
@@ -226,6 +232,8 @@ function Admin() {
             ></DataTable>
           </div>
         )}
+      </div>
+      </div>
       </div>
     </>
   );

@@ -64,21 +64,28 @@ return (
                    )} 
                  
                   {isEmailAdmin && token &&(
-                  <li>
-                    {/* First Tier Drop Down */}
-                    <label htmlFor="drop-2" className="toggle">Admin <span className="fa fa-angle-down" aria-hidden="true" /> </label>
-                    <a href="#">Admin <span className="fa fa-angle-down" aria-hidden="true" /></a>
-                    <input type="checkbox" id="drop-2" />
-                    <ul>
-                      <li> <Link to="/Admin" >
-                      Product List
-                  </Link></li>
-                      <li><Link to="/Orders" >
-                      Order List
-                  </Link></li>
+                  // <li>
+                  //   {/* First Tier Drop Down */}
+                  //   <label htmlFor="drop-2" className="toggle">Admin <span className="fa fa-angle-down" aria-hidden="true" /> </label>
+                  //   <a href="#">Admin <span className="fa fa-angle-down" aria-hidden="true" /></a>
+                  //   <input type="checkbox" id="drop-2" />
+                  //   <ul>
+                  //     <li> <Link to="/Admin" >
+                  //     Product List
+                  // </Link></li>
+                  //     <li><Link to="/Orders" >
+                  //     Order List
+                  // </Link></li>
                       
-                    </ul>
-                  </li>
+                  //   </ul>
+                  // </li>
+                  <li><Link
+                  to="/Dashboard"
+                  aria-current="page"
+                  href="#"
+                >
+                 Admin
+                </Link></li>
                   )}
                   {token && (
               <li>

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate,Link } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Sidebar from "../../../common/Sidebar";
 function AddProduct() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -122,6 +123,11 @@ function AddProduct() {
           </ol>
            {/**/}
          </div>
+         <div class="row">  
+
+<Sidebar/>
+
+<div class="col-md-9 col-lg-9">
       <div className="container" style={{marginTop:"40px",marginBottom:"100px"}}>
         
         <form onSubmit={handleSubmit}>
@@ -254,6 +260,8 @@ function AddProduct() {
         
         </form>
        
+      </div>
+      </div>
       </div>
       <ToastContainer position="top-right" autoClose={3000} />
     </>

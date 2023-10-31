@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import axios from "axios";
-
+import Sidebar from "../../../common/Sidebar";
 function Orders() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
@@ -71,7 +71,12 @@ function Orders() {
           </li>
         </ol>
       </div>
-      <div className="MainDiv" style={{ padding: "60px 10%" }}>
+      <div class="row">  
+
+<Sidebar/>
+
+<div class="col-md-9 col-lg-10">
+      <div className="MainDiv" style={{ padding: "40px 4%" }}>
       <div className="container">
             <div>
               <input
@@ -119,6 +124,8 @@ function Orders() {
             </tbody>
           </table>
         </div> */}
+      </div>
+      </div>
       </div>
     </>
   );

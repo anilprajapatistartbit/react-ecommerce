@@ -25,6 +25,8 @@ import OrderDetails from "./Pages/Myorders/OrderDetails";
 import Cancel from "./Componenets/Cancel";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Dashboard from "./Pages/Administrator/Dashboard";
+import Sidebar from "./common/Sidebar";
 const data = createContext();
 function App() {
  
@@ -108,6 +110,8 @@ function App() {
           <Route path="/MyOrder" element={<MyOrder />} />
           <Route path="/Success" element={<Success />} />
           <Route path="/Cancel" element={<Cancel />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Sidebar" element={<Sidebar/>} />
           <Route path="/OrderDetails/:orderId" element={<OrderDetails/>} />
         </Routes>
         <Footer />
