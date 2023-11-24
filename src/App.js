@@ -110,7 +110,7 @@ function App() {
           <Route path="/MyOrder" element={<MyOrder />} />
           <Route path="/Success" element={<Success />} />
           <Route path="/Cancel" element={<Cancel />} />
-          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Dashboard" element={<Dashboard count={product.length}/>} />
           <Route path="/Sidebar" element={<Sidebar/>} />
           <Route path="/OrderDetails/:orderId" element={<OrderDetails/>} />
         </Routes>

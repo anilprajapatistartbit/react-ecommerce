@@ -12,12 +12,12 @@ const EditProduct = () => {
     price: '',
     quantity:0,
     disciption:"",
-   // images:[]
+    //images:[]
   });
-  // const handleImageChange = (e) => {
-  //   const files = e.target.files;
-  //   setProduct({ ...product, images: files });
-  // };
+  //  const handleImageChange = (e) => {
+  //    const files = e.target.files;
+  //    setProduct({ ...product, images: files });
+  //  };
 
   const { pid } = useParams();
   useEffect(() => {
@@ -197,16 +197,22 @@ const EditProduct = () => {
             <div className="text-danger">{validationErrors.disciption}</div>
           )}
           </div>
-          {/* <div className="form-group">
+          <div className="form-group">
             <label>Images:</label>
-          <input
+            <img className="form-control"
+                          //src={proitem.url[mainImage]}
+                          src={`https://localhost:7015/images/${
+                            product.images?.url
+                      }`} ></img>
+          {/* <input
            className="form-control"
               type="file"
               value={product.images}
               name="images"
               multiple // Allow multiple file selection
             onChange={handleImageChange} // Update the function name
-            /></div> */}
+            /> */}
+            </div>
           <button                
                    onClick={() => pdetail(pdetail)}
                     className="payment-address"

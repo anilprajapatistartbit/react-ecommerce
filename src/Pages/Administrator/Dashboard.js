@@ -4,8 +4,8 @@ import Sidebar from '../../common/Sidebar';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useParams ,useNavigate ,Link} from 'react-router-dom';
- 
-const Dashboard = () => {
+import axios from "axios";
+const Dashboard = (props) => {
     const [date, setDate] = useState(new Date());
 
     const handleDateChange = (newDate) => {
@@ -23,7 +23,27 @@ const Dashboard = () => {
 //    useEffect(() => {
 //       getData();
 //    },)
-    
+const [data, setData] = useState([]);
+const [order, setorder] = useState([]);
+const [Newsletter, setNewsletter] = useState([]);
+ 
+useEffect(() => {
+  axios.get("https://localhost:7015/api/Registration/Getall").then((res) => {
+    setData(res.data);
+ 
+  });
+}, []);
+useEffect(() => {
+    axios.get("https://localhost:7015/api/Orders/Getallorder").then((res) => {
+        setorder(res.data); 
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get("https://localhost:7015/api/Newsletter/Getall").then((res) => {
+        setNewsletter(res.data); 
+    });
+  }, []);
  
     return (<>
         <div>
@@ -57,7 +77,7 @@ const Dashboard = () => {
                             <i class="fa fa-user fa-4x"></i>
                         </div>
                         <h6 class="text-uppercase">Users</h6>
-                        <h1 class="display-4">134</h1>
+                        <h1 class="display-4">{data.length}</h1>
                     </div>
                 </div>
             </div>
@@ -67,8 +87,8 @@ const Dashboard = () => {
                         <div class="rotate">
                             <i class="fa fa-list fa-4x"></i>
                         </div>
-                        <h6 class="text-uppercase">Posts</h6>
-                        <h1 class="display-4">87</h1>
+                        <h6 class="text-uppercase">Products</h6>
+                        <h1 class="display-4">{props.count}</h1>
                     </div>
                 </div>
             </div>
@@ -76,10 +96,10 @@ const Dashboard = () => {
                 <div class="card text-white bg-info h-100">
                     <div class="card-body bg-info">
                         <div class="rotate">
-                          <i class="fab fa-twitter fa-4x"></i>
+                          <i class="fa fa-shopping-bag fa-4x"></i>
                         </div>
-                        <h6 class="text-uppercase">Tweets</h6>
-                        <h1 class="display-4">125</h1>
+                        <h6 class="text-uppercase">Orders</h6>
+                        <h1 class="display-4">{order.length}</h1>
                     </div>
                 </div>
             </div>
@@ -89,8 +109,8 @@ const Dashboard = () => {
                         <div class="rotate">
                             <i class="fa fa-share fa-4x"></i>
                         </div>
-                        <h6 class="text-uppercase">Shares</h6>
-                        <h1 class="display-4">36</h1>
+                        <h6 class="text-uppercase">Newsletters</h6>
+                        <h1 class="display-4">{Newsletter.length}</h1>
                     </div>
                 </div>
             </div>
@@ -100,28 +120,27 @@ const Dashboard = () => {
             <div class="col-lg-7 col-md-6 col-sm-12">
                 
               {/* <h5 class="mt-3 mb-3 text-secondary">
-               Check More Records of Employees
+               Check More Records of Users
               </h5>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead class="thead-light">
                             <tr>
                                 <th>No</th>
-                                <th>Label</th>
-                                <th>Header</th>
-                                <th>Column</th>
-                                <th>Record Data</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Email</th>
+                             
                             </tr>
                         </thead>
                         <tbody>
-                         {record.slice(0, 5).map((output)=>
+                         {data.map((data)=>
                             <tr>
-                                <td>{output.id}</td>
-                                <td>{output.name}</td>
-                                <td>{output.email}</td>
-                                <td>{output.username}</td>
-                                <td>{output.website}</td>
-                                <td></td>
+                                <td>{data.id}</td>
+                                <td>{data.usename}</td>
+                                <td>{data.password}</td>
+                                <td>{data.email}</td>
+                              
                             </tr>
                            )}
                         </tbody>

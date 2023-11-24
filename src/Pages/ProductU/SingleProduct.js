@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { useNavigate ,Link, useLocation} from "react-router-dom";
 import "../../assets/css/SingleProduct.css";
-
+import ReactImageMagnify from "react-image-magnify";
 function SingleProduct({  addtocart, pro }) {
  // const location = useLocation();
   const navigate = useNavigate();
@@ -10,6 +10,16 @@ function SingleProduct({  addtocart, pro }) {
       navigate("/login");
     }
   }, []);
+
+  const textInput = useRef(null);
+  const handleMouseOver = () => {
+    textInput.current.style.visibility = "hidden"
+  };
+
+  const handleMouseOut = () => {
+    textInput.current.style.visibility = "visible"
+  };
+
 
  // const productItem = location.state?.productItem;
   const [mainImage, setMainImage] = useState(0);
@@ -103,18 +113,41 @@ function SingleProduct({  addtocart, pro }) {
                     </button>
                   </div> */}
              
-                    <div>
+                  <div>
                     <div className="preview-pic tab-content">
                       <div className="tab-pane active" id="pic-1">
-                        <center>
-                        <img className="desc1-left"
+                        <div 
+                        onMouseOver={handleMouseOver}
+                        onMouseOut={handleMouseOut}
+                        >
+                        <ReactImageMagnify
+                        {...{
+                     smallImage: {
+                
+                       alt: proitem.images[mainImage]?.url,
+                       isFluidWidth: true,
+                       src: `https://localhost:7015/images/${proitem.images[mainImage]?.url}`,
+                
+                      },
+                     largeImage: {
+                      src: `https://localhost:7015/images/${proitem.images[mainImage]?.url}`,
+                      width: 1200, // Set the width of the larger image as needed
+                       height: 800, // Set the height of the larger image as needed
+               
+                  },
+                       enlargedImageContainerClassName: 'custom-enlarged-image-container',
+            }}
+          />
+                          
+                        {/* <img className="desc1-left"
                           //src={proitem.url[mainImage]}
                           src={`https://localhost:7015/images/${
                         proitem?.images[mainImage]?.url
                       }`}
                           key={index}
                           style={{ height: "430px", width: "80%" }}
-                        ></img></center>
+                        /> */}
+                        </div>
                       </div>
                     </div>
                     </div>
@@ -134,11 +167,8 @@ function SingleProduct({  addtocart, pro }) {
                          
                         ))}
                    </div>
-
-
-
                 </div>
-                <div className="col-lg-6 offset-lg-0">
+                <div className="col-lg-6 offset-lg-0"  ref={textInput}>
                   <h3> {proitem.product.name}</h3>
                   <br />
                   <h5>
@@ -202,7 +232,6 @@ function SingleProduct({  addtocart, pro }) {
                   </div>
                 </div>
               </div>
-
               <div>
                 <div className="row sub-para-w3layouts mt-5">
                   <h3 className="shop-sing">Lorem ipsum dolor sit amet</h3>
